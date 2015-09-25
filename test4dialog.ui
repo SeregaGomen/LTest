@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Test4Dialog</class>
+ <widget class="QDialog" name="Test4Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1090</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Когнітивний тест з менеджменту</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1053</width>
+        <height>1242</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="4" column="0">
+        <widget class="QGroupBox" name="groupBox_6">
+         <property name="title">
+          <string>5. Контроль − це:</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb53">
+            <property name="text">
+             <string>спостереження за роботою персоналу організації;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QRadioButton" name="rb54">
+            <property name="text">
+             <string>спостереження за виконанням персоналом окремих завдань;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb52">
+            <property name="text">
+             <string>вид людської діяльності;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb51">
+            <property name="text">
+             <string>вид управлінської діяльності по забезпеченню виконання певних завдань і досягнення цілей організації;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QRadioButton" name="rb55">
+            <property name="text">
+             <string>постійна перевірка того, як організація здійснює свої цілі і коригує свої дії.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QGroupBox" name="groupBox_8">
+         <property name="title">
+          <string>7. Що забезпечує управлінська функція &quot;мотивація&quot;?</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_8">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb72">
+            <property name="text">
+             <string>Спонукання працівників до ефективного виконання встановлених завдань</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb73">
+            <property name="text">
+             <string>Виконання прийнятих управлінських рішень</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QRadioButton" name="rb74">
+            <property name="text">
+             <string>Забезпечення безперечного впливу на підлеглого</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb71">
+            <property name="text">
+             <string>Досягнення особистих цілей</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QRadioButton" name="rb75">
+            <property name="text">
+             <string>Спонукання працівників до діяльності</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>2. Цілі організації повинні задовольняти такі основні вимоги:</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb22">
+            <property name="text">
+             <string>досяжність і орієнтація в часі;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb21">
+            <property name="text">
+             <string>досяжність, конкретність, орієнтація в часі;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QRadioButton" name="rb24">
+            <property name="text">
+             <string>досяжність;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb23">
+            <property name="text">
+             <string>орієнтація в часі і конкретність;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QRadioButton" name="rb25">
+            <property name="text">
+             <string>орієнтація в часі.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="title">
+          <string>4. Як здійснюється поточний контроль в організації?</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="6" column="0">
+           <widget class="QRadioButton" name="rb45">
+            <property name="text">
+             <string>Вищестоящою структурою</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QRadioButton" name="rb42">
+            <property name="text">
+             <string>Шляхом спостереження за роботою працівників</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QRadioButton" name="rb43">
+            <property name="text">
+             <string>За допомогою системи зворотного зв'язку між керівною і керованою системами</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb41">
+            <property name="text">
+             <string>Шляхом заслуховування працівників організації на виробничих нарадах</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QRadioButton" name="rb44">
+            <property name="text">
+             <string>Шляхом доповідей на зборах і нарадах</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>1. Якою з якостей має володіти менеджер для ефективного керівництва численним колективом:</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="4" column="0">
+           <widget class="QRadioButton" name="rb15">
+            <property name="text">
+             <string>бути строгим, але справедливим;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QRadioButton" name="rb16">
+            <property name="text">
+             <string>бути умілим адміністратором і користуватися пошаною в колективі;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb13">
+            <property name="text">
+             <string>перевершувати членів свого колективу по рівню ерудиції;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QRadioButton" name="rb14">
+            <property name="text">
+             <string>бути умілим адміністратором (формальним лідером), мати організаторські якості;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb11">
+            <property name="text">
+             <string>знати усе про свій колектив і кожного працівника;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb12">
+            <property name="text">
+             <string>бути формальним лідером і мати управлінські знання;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QRadioButton" name="rb17">
+            <property name="text">
+             <string>мати задушевність, уміти викликати до себе довіру.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QGroupBox" name="groupBox_7">
+         <property name="title">
+          <string>6. Під плануванням розуміють:</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_7">
+          <item row="3" column="0">
+           <widget class="QRadioButton" name="rb64">
+            <property name="text">
+             <string>стан організації;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb61">
+            <property name="text">
+             <string>вид діяльності;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb63">
+            <property name="text">
+             <string>перспективу розвитку;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb62">
+            <property name="text">
+             <string>відокремлений вид управлінської діяльності, який визначає перспективу і майбутній стан організації;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QRadioButton" name="rb65">
+            <property name="text">
+             <string>інтеграцію видів діяльності.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>3. Аналіз конкурентів організації проводиться з метою:</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb32">
+            <property name="text">
+             <string>визначення їх цілей і сильних сторін;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QRadioButton" name="rb34">
+            <property name="text">
+             <string>визначення стратегії;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QRadioButton" name="rb33">
+            <property name="text">
+             <string>визначення їх цілей, стратегій, сильних і слабких сторін;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb31">
+            <property name="text">
+             <string>визначення їх стратегії і сильних сторін;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QRadioButton" name="rb35">
+            <property name="text">
+             <string>визначення їх цілей і слабких сторін.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+         <zorder>rb31</zorder>
+         <zorder>rb32</zorder>
+         <zorder>rb33</zorder>
+         <zorder>rb34</zorder>
+         <zorder>rb35</zorder>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QGroupBox" name="groupBox_5">
+         <property name="title">
+          <string>8. Яким із методів управління туристськими організаціями належить провідна роль в сучасних умовах?</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_10">
+          <item row="3" column="0">
+           <widget class="QRadioButton" name="rb84">
+            <property name="text">
+             <string>Розпорядливим</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb82">
+            <property name="text">
+             <string>Соціально-психологічним</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb83">
+            <property name="text">
+             <string>Організаційно-розпорядливим</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb81">
+            <property name="text">
+             <string>Економічним</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QRadioButton" name="rb85">
+            <property name="text">
+             <string>Cоціально-економічним</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>Test4Dialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>Test4Dialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Test6Dialog</class>
+ <widget class="QDialog" name="Test6Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1090</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Мотиваційний тест</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1053</width>
+        <height>1829</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="15" column="0">
+        <widget class="QGroupBox" name="groupBox_16">
+         <property name="title">
+          <string>16. Заради успіху я можу ризикувати, навіть якщо шанси не на користь мені.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_17">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb162">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb161">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>3. У будь-якій справі важливим для мене є її виконання, а не кінцевий результат.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb31">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb32">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QGroupBox" name="groupBox_5">
+         <property name="title">
+          <string>8. Навіть у звичайній роботі я намагаюся вдосконалити деякі її елементи.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_10">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb82">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb81">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="17" column="0">
+        <widget class="QGroupBox" name="groupBox_18">
+         <property name="title">
+          <string>18. Моя енергія посилюється, коли все йде гладко.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_19">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb181">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb182">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>2. Якщо я залишусь без улюбленого заняття, моє життя стане марним.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb22">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb21">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QGroupBox" name="groupBox_7">
+         <property name="title">
+          <string>6. У моєму житті успіхів було більше, чим невдач.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_7">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb61">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb62">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="14" column="0">
+        <widget class="QGroupBox" name="groupBox_15">
+         <property name="title">
+          <string>15. Вважаю, що я впевнена в собі людина.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_16">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb151">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb152">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="11" column="0">
+        <widget class="QGroupBox" name="groupBox_12">
+         <property name="title">
+          <string>12. Мої батьки занадто суворо контролюють мене.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_13">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb122">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb121">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="12" column="0">
+        <widget class="QGroupBox" name="groupBox_13">
+         <property name="title">
+          <string>13. У мене терпіння більше, ніж здібностей.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_14">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb132">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb131">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="10" column="0">
+        <widget class="QGroupBox" name="groupBox_11">
+         <property name="title">
+          <string>11.У моїх невдачах, на мою думку, винні обставини, а не я сам.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_12">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb111">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb112">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QGroupBox" name="groupBox_6">
+         <property name="title">
+          <string>5. На мою думку, більшість людей живе не близькими, а віддаленими цілями.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb52">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb51">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="13" column="0">
+        <widget class="QGroupBox" name="groupBox_14">
+         <property name="title">
+          <string>14. Від своїх намірів занадто часто мене змушує відмовлятися лінь, а не сумнів в успіху.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_15">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb141">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb142">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="16" column="0">
+        <widget class="QGroupBox" name="groupBox_17">
+         <property name="title">
+          <string>17. Я вважаю себе не старанною людиною.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_18">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb171">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb172">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="9" column="0">
+        <widget class="QGroupBox" name="groupBox_10">
+         <property name="title">
+          <string>10. Мої близькі люди вважають мене ледачою людиною.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_11">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb101">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb102">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QGroupBox" name="groupBox_9">
+         <property name="title">
+          <string>9. Коли я поглинений у думки про успіх, забуваю про запобіжні заходи.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_9">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb91">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb92">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="title">
+          <string>4. Вважаю, що люди страждають більше від невдач на роботі, чим від поганих стосунків з близькими людьми.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb41">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QRadioButton" name="rb42">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QGroupBox" name="groupBox_8">
+         <property name="title">
+          <string>7. Мені більше подобаються люди емоційні, а не діяльні.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_8">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb72">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb71">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>1. На мою думку, успіх у житті залежить від випадку, а не від розрахунку.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb12">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb11">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="20" column="0">
+        <widget class="QGroupBox" name="groupBox_21">
+         <property name="title">
+          <string>21. Рівень моїх вимог до життя нижче рівня моїх ровесників.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_22">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb211">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb212">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="21" column="0">
+        <widget class="QGroupBox" name="groupBox_22">
+         <property name="title">
+          <string>22. Мені здається, що у мене наполегливості більше, ніж здібностей.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_23">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb222">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb221">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="19" column="0">
+        <widget class="QGroupBox" name="groupBox_20">
+         <property name="title">
+          <string>20. Близькі люди зазвичай не поділяють моїх планів.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_21">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb201">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb202">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="18" column="0">
+        <widget class="QGroupBox" name="groupBox_19">
+         <property name="title">
+          <string>19. Якби я був журналістом, то писав би про оригінальні винаходи людей, а не про події.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_20">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb191">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb192">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="22" column="0">
+        <widget class="QGroupBox" name="groupBox_23">
+         <property name="title">
+          <string>23. Я міг би досягти більшого, звільнившись від поточних справ.</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_24">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb231">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb232">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>Test6Dialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>431</x>
+     <y>458</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>431</x>
+     <y>240</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>Test6Dialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>431</x>
+     <y>458</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>431</x>
+     <y>240</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

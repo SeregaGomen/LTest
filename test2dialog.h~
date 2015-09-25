@@ -1,0 +1,22 @@
+#ifndef TEST1DIALOG_H
+#define TEST1DIALOG_H
+
+#include <QDialog>
+
+namespace Ui {
+class Test1Dialog;
+}
+
+class Test1Dialog : public QDialog
+{
+    Q_OBJECT
+
+public:
+    explicit Test1Dialog(QWidget *parent = 0);
+    ~Test1Dialog();
+
+private:
+    Ui::Test1Dialog *ui;
+};
+
+#endif // TEST1DIALOG_H

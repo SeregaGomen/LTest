@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Test5Dialog</class>
+ <widget class="QDialog" name="Test5Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1090</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Особистісно-творчий тест</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QScrollArea" name="scrollArea">
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>-1621</y>
+        <width>1054</width>
+        <height>2172</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_6">
+       <item row="7" column="0">
+        <widget class="QGroupBox" name="groupBox_5">
+         <property name="title">
+          <string>8. Якщо незнайома справа сподобалась Вам, чи хочете Ви дізнатися про неї більше?</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_10">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb82">
+            <property name="text">
+             <string>Ні, хочу навчитися тільки основному в цій справі</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb83">
+            <property name="text">
+             <string>Ні, хочу тільки задовольнити свою цікавість</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb81">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="15" column="0">
+        <widget class="QGroupBox" name="groupBox_16">
+         <property name="title">
+          <string>16. Якщо Ви наодинці:</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_17">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb161">
+            <property name="text">
+             <string>мрієте про абстрактні речі;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb162">
+            <property name="text">
+             <string>намагаєтеся знайти заняття;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb163">
+            <property name="text">
+             <string>інколи Вам подобається помріяти, але про речі, що не пов'язані з роботою.</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QGroupBox" name="groupBox_6">
+         <property name="title">
+          <string>5. Якщо Ви вирішуєте щось розпочати, чи думаєте, що здійсните своє починання?</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_5">
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb53">
+            <property name="text">
+             <string>Упевнений</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb52">
+            <property name="text">
+             <string>Інколи сумніваюсь</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb51">
+            <property name="text">
+             <string>Сподіваюсь</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="6" column="0">
+        <widget class="QGroupBox" name="groupBox_8">
+         <property name="title">
+          <string>7. Якщо Ви займаєтесь незнайомою справою, чи бажаєте досягти в ній досконалості?</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_8">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb72">
+            <property name="text">
+             <string>Задовольнюся тим, чого встиг досягти</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb73">
+            <property name="text">
+             <string>Так, але тільки якщо це подобається</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb71">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="title">
+          <string>2. Чи вважаєте Ви, що можете брати участь у значних змінах навколишнього світу?</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb22">
+            <property name="text">
+             <string>Ні</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb21">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb23">
+            <property name="text">
+             <string>Так, лише в деяких випадках</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="title">
+          <string>4. Чи вважаєте Ви, що в майбутньому Ваша роль в суспільстві буде настільки важливою, що Ви зможете щось принципово змінити?</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="3" column="0">
+           <widget class="QRadioButton" name="rb42">
+            <property name="text">
+             <string>Це маловірогідно</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QRadioButton" name="rb43">
+            <property name="text">
+             <string>Можливо</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb41">
+            <property name="text">
+             <string>Так, напевно</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QGroupBox" name="groupBox">
+         <property name="title">
+          <string>1. Чи вважаєте Ви, що навколишній світ потрібно поліпшувати?</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb13">
+            <property name="text">
+             <string>Так, але тільки в окремих сферах і напрямах</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb11">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb12">
+            <property name="text">
+             <string>Ні, він і так досить хороший</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QGroupBox" name="groupBox_7">
+         <property name="title">
+          <string>6. Чи відчуваєте Ви бажання займатися абсолютно не відомою Вам справою?</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_7">
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb63">
+            <property name="text">
+             <string>Усе залежить від характеру цієї справи</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb61">
+            <property name="text">
+             <string>Так, невідоме мене притягує</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb62">
+            <property name="text">
+             <string>Невідоме мене не цікавить</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="title">
+          <string>3. Чи вважаєте Ви, що деякі з Ваших ідей будуть прогресивними у Вашій професійній діяльності?</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb32">
+            <property name="text">
+             <string>Так, при сприятливих обставинах</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QRadioButton" name="rb33">
+            <property name="text">
+             <string>Лише деякою мірою</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb31">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+         <zorder>rb31</zorder>
+         <zorder>rb32</zorder>
+         <zorder>rb33</zorder>
+        </widget>
+       </item>
+       <item row="14" column="0">
+        <widget class="QGroupBox" name="groupBox_15">
+         <property name="title">
+          <string>15. Ви займаєтеся якоюсь справою. Вирішуєте припинити це заняття лише тоді, коли:</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_16">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb151">
+            <property name="text">
+             <string>справа закінчена і здається Вам відмінно виконаною;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb153">
+            <property name="text">
+             <string>Вам ще не все вдалося зробити.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb152">
+            <property name="text">
+             <string>Ви частково задоволені; </string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QGroupBox" name="groupBox_9">
+         <property name="title">
+          <string>9. Якщо Ви зазнаєте невдачі, що Ви робите?</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_9">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb91">
+            <property name="text">
+             <string>Деякий час наполягаєте всупереч здоровому глузду</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb93">
+            <property name="text">
+             <string>Продовжуєте робити свою справу, навіть коли будуть очевидними нездоланні перешкоди</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb92">
+            <property name="text">
+             <string>Кидаєте цю витівку, тому що розумієте, що вона нереальна</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="10" column="0">
+        <widget class="QGroupBox" name="groupBox_11">
+         <property name="title">
+          <string>11. Подорожуючи, Ви легко б могли орієнтуватися на маршруті, яким уже пройшли?</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_12">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb111">
+            <property name="text">
+             <string>Так</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb113">
+            <property name="text">
+             <string>Так, але тільки там, де місцевість сподобалась і запам'яталась</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb112">
+            <property name="text">
+             <string>Ні, боюся відійти від шляху</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="9" column="0">
+        <widget class="QGroupBox" name="groupBox_10">
+         <property name="title">
+          <string>10. Професію треба обирати, спираючись на:</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_11">
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb103">
+            <property name="text">
+             <string>переваг, які вона забезпечує.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb101">
+            <property name="text">
+             <string>власні можливості;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb102">
+            <property name="text">
+             <string>стабільність, значущість, потребу професії, потребу в ній суспільства;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="11" column="0">
+        <widget class="QGroupBox" name="groupBox_12">
+         <property name="title">
+          <string>12. Відразу ж після якоїсь бесіди чи зможете Ви пригадати все, що говорилося?</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_13">
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb123">
+            <property name="text">
+             <string>Запам'ятаю тільки те, що мене цікавить</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb121">
+            <property name="text">
+             <string>Так, зможу</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb122">
+            <property name="text">
+             <string>Всього пригадати не зможу</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="16" column="0">
+        <widget class="QGroupBox" name="groupBox_17">
+         <property name="title">
+          <string>17. Якщо якась ідея захоплює Вас, Ви думаєте про неї:</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_18">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb171">
+            <property name="text">
+             <string>незалежно від того, де і з ким перебуваєте;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb173">
+            <property name="text">
+             <string>тільки там, де не надто шумно.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb172">
+            <property name="text">
+             <string>можете робити це тільки наодинці;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="12" column="0">
+        <widget class="QGroupBox" name="groupBox_13">
+         <property name="title">
+          <string>13. Коли Ви почуєте слово незнайомою мовою, чи зможете повторити його по складах, без помилок, навіть не знаючи його значення?</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_14">
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb133">
+            <property name="text">
+             <string>Повторю, але не зовсім правильно</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb131">
+            <property name="text">
+             <string>Так, зможу</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb132">
+            <property name="text">
+             <string>Так, якщо це слово легко запам'ятовується</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="13" column="0">
+        <widget class="QGroupBox" name="groupBox_14">
+         <property name="title">
+          <string>14. Що Вам подобається робити у вільний час?</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_15">
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb141">
+            <property name="text">
+             <string>Залишатися наодинці, міркувати</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb143">
+            <property name="text">
+             <string>Байдуже, що робити</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb142">
+            <property name="text">
+             <string>Перебувати в компанії</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="17" column="0">
+        <widget class="QGroupBox" name="groupBox_18">
+         <property name="title">
+          <string>18. Якщо Ви відстоюєте якусь ідею:</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_19">
+          <item row="2" column="0">
+           <widget class="QRadioButton" name="rb183">
+            <property name="text">
+             <string>змінюєте власну думку, якщо опір виявиться надто сильним.</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QRadioButton" name="rb181">
+            <property name="text">
+             <string>відмовлюєтеся від неї, якщо вислухаєте переконливі аргументи опонентів;</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QRadioButton" name="rb182">
+            <property name="text">
+             <string>дотримуєтесь власної думки, які б аргументи не вислухали;</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Save</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>Test5Dialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>Test5Dialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
