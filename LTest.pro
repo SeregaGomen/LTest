@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     test5dialog.cpp \
     test6dialog.cpp \
     studentdialog.cpp \
-    resultdialog.cpp
+    resultdialog.cpp \
+    tabledialog.cpp
 
 HEADERS  += mainwindow.h \
     test1dialog.h \
@@ -35,7 +36,8 @@ HEADERS  += mainwindow.h \
     test5dialog.h \
     test6dialog.h \
     studentdialog.h \
-    resultdialog.h
+    resultdialog.h \
+    tabledialog.h
 
 FORMS    += mainwindow.ui \
     test1dialog.ui \
@@ -46,10 +48,11 @@ FORMS    += mainwindow.ui \
     test5dialog.ui \
     test6dialog.ui \
     studentdialog.ui \
-    resultdialog.ui
+    resultdialog.ui \
+    tabledialog.ui
 
 RESOURCES += \
-    ltest.qrc
+    LTest.qrc
 
 #DISTFILES += \
 #    LTest.rc

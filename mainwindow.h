@@ -26,6 +26,7 @@ public slots:
     void slotTest5(void);
     void slotTest6(void);
     void slotStudent(void);
+    void slotTable(void);
 
 protected:
     void closeEvent(QCloseEvent *event);

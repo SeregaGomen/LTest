@@ -23,6 +23,7 @@
 #include "test6dialog.h"
 #include "studentdialog.h"
 #include "resultdialog.h"
+#include "tabledialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -444,4 +445,11 @@ void MainWindow::calcStudent(int currentTest,QString beginDate,QString currentDa
     dlg = new ResultDialog(currentTest,beginDate,currentDate,n1,n2,index,m1,m2,s1,s2,sx1,sx2,t,v);
     dlg->exec();
     //(new ResultForm("Обрані групи", wf.GetTestName(), dt1.ToString().Substring(0, 10), dt2.ToString().Substring(0, 10), n1.ToString(), n2.ToString(), string.Format("{0:F}", M1), string.Format("{0:F}", M2), string.Format("{0:F}", S1), string.Format("{0:F}", S2), string.Format("{0:F}", T), V.ToString(), string.Format("{0:F}", Sx1), string.Format("{0:F}", Sx2), TS, Index)).ShowDialog();
+}
+
+void MainWindow::slotTable(void)
+{
+    TableDialog* dlg = new TableDialog(this);
+
+    dlg->show();
 }

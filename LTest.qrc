@@ -8,5 +8,10 @@
         <file>images/d6.png</file>
         <file>images/d7.png</file>
         <file>images/d5.png</file>
+        <file>images/media-backward.png</file>
+        <file>images/media-fast-backward.png</file>
+        <file>images/media-fast-forward.png</file>
+        <file>images/media-play.png</file>
+        <file>images/remove.png</file>
     </qresource>
 </RCC>
