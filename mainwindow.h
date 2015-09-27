@@ -8,6 +8,8 @@ namespace Ui {
 class MainWindow;
 }
 
+class GetStudentDialog;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -31,6 +33,7 @@ protected:
 private:
     Ui::MainWindow *ui;
     QSqlDatabase db;
+    GetStudentDialog* sdlg;
     void readSettings(void);
     void writeSettings(void);
     void openDB(void);

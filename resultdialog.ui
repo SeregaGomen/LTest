@@ -7,8 +7,20 @@
     <x>0</x>
     <y>0</y>
     <width>392</width>
-    <height>562</height>
+    <height>580</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>392</width>
+    <height>580</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>392</width>
+    <height>580</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
@@ -16,8 +28,8 @@
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>180</x>
-     <y>520</y>
+     <x>190</x>
+     <y>540</y>
      <width>191</width>
      <height>32</height>
     </rect>
@@ -26,7 +38,7 @@
     <enum>Qt::Horizontal</enum>
    </property>
    <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+    <set>QDialogButtonBox::Ok</set>
    </property>
   </widget>
   <widget class="QGroupBox" name="groupBox_2">
@@ -66,6 +78,9 @@
     <property name="text">
      <string>TextLabel</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
@@ -92,18 +107,24 @@
     <property name="text">
      <string>TextLabel</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="lbBeginExpect">
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>57</y>
+      <y>60</y>
       <width>91</width>
-      <height>20</height>
+      <height>17</height>
      </rect>
     </property>
     <property name="text">
      <string>TextLabel</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">
@@ -144,6 +165,9 @@
     <property name="text">
      <string>TextLabel</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="lbBeginError">
     <property name="geometry">
@@ -156,6 +180,9 @@
     </property>
     <property name="text">
      <string>TextLabel</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_11">
@@ -209,6 +236,9 @@
     <property name="text">
      <string>TextLabel</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="label_14">
     <property name="geometry">
@@ -235,18 +265,24 @@
     <property name="text">
      <string>TextLabel</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="lbCurrentExpect">
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>57</y>
+      <y>60</y>
       <width>91</width>
-      <height>20</height>
+      <height>17</height>
      </rect>
     </property>
     <property name="text">
      <string>TextLabel</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_17">
@@ -287,6 +323,9 @@
     <property name="text">
      <string>TextLabel</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="lbCurrentError">
     <property name="geometry">
@@ -299,6 +338,9 @@
     </property>
     <property name="text">
      <string>TextLabel</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_21">
@@ -321,7 +363,7 @@
      <x>10</x>
      <y>290</y>
      <width>371</width>
-     <height>151</height>
+     <height>161</height>
     </rect>
    </property>
    <property name="title">
@@ -338,6 +380,9 @@
     </property>
     <property name="text">
      <string>TextLabel</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QLabel" name="label_23">
@@ -365,6 +410,9 @@
     <property name="text">
      <string>TextLabel</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
    </widget>
    <widget class="QLabel" name="label_25">
     <property name="geometry">
@@ -385,7 +433,7 @@
       <x>10</x>
       <y>70</y>
       <width>351</width>
-      <height>71</height>
+      <height>81</height>
      </rect>
     </property>
     <column>
@@ -404,7 +452,7 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>440</y>
+     <y>460</y>
      <width>371</width>
      <height>71</height>
     </rect>

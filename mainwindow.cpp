@@ -37,6 +37,8 @@ MainWindow::MainWindow(QWidget *parent) :
 //    #else
 //        setWindowIcon(QIcon(":/images/main.png"));
 #endif
+
+    sdlg = new GetStudentDialog(this);
 }
 
 MainWindow::~MainWindow()
@@ -191,6 +193,13 @@ void MainWindow::setupLanguage(void)
     QString translatorFileName = QLatin1String("qt_") + QLocale::system().name();
     QTranslator* dlgTranslator = new QTranslator(qApp);
 
+    QTextCodec* codec =  QTextCodec::codecForName("UTF-8");
+#if QT_VERSION < 0x050000
+    QTextCodec::setCodecForTr(codec);
+    QTextCodec::setCodecForCStrings(codec);
+#endif
+    QTextCodec::setCodecForLocale(codec);
+
     // Локализация (стандартных диалогов, e.t.c, ...)
     if (dlgTranslator->load(translatorFileName, QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         qApp->installTranslator(dlgTranslator);
@@ -200,8 +209,8 @@ void MainWindow::setupLanguage(void)
 void MainWindow::slotTest1(void)
 {
    Test1Dialog *dlg;
-   GetStudentDialog* sdlg = new GetStudentDialog(this);
 
+   sdlg->initDialog();
    if (sdlg->exec() != QDialog::Accepted)
    {
        delete sdlg;
@@ -216,8 +225,8 @@ void MainWindow::slotTest1(void)
 void MainWindow::slotTest2(void)
 {
     Test2Dialog *dlg;
-    GetStudentDialog* sdlg = new GetStudentDialog(this);
 
+    sdlg->initDialog();
     if (sdlg->exec() != QDialog::Accepted)
     {
         delete sdlg;
@@ -232,8 +241,8 @@ void MainWindow::slotTest2(void)
 void MainWindow::slotTest3(void)
 {
     Test3Dialog *dlg;
-    GetStudentDialog* sdlg = new GetStudentDialog(this);
 
+    sdlg->initDialog();
     if (sdlg->exec() != QDialog::Accepted)
     {
         delete sdlg;
@@ -248,8 +257,8 @@ void MainWindow::slotTest3(void)
 void MainWindow::slotTest4(void)
 {
     Test4Dialog *dlg;
-    GetStudentDialog* sdlg = new GetStudentDialog(this);
 
+    sdlg->initDialog();
     if (sdlg->exec() != QDialog::Accepted)
     {
         delete sdlg;
@@ -264,8 +273,8 @@ void MainWindow::slotTest4(void)
 void MainWindow::slotTest5(void)
 {
     Test5Dialog *dlg;
-    GetStudentDialog* sdlg = new GetStudentDialog(this);
 
+    sdlg->initDialog();
     if (sdlg->exec() != QDialog::Accepted)
     {
         delete sdlg;
@@ -280,8 +289,8 @@ void MainWindow::slotTest5(void)
 void MainWindow::slotTest6(void)
 {
     Test6Dialog *dlg;
-    GetStudentDialog* sdlg = new GetStudentDialog(this);
 
+    sdlg->initDialog();
     if (sdlg->exec() != QDialog::Accepted)
     {
         delete sdlg;
@@ -320,8 +329,8 @@ void MainWindow::calcStudent(int currentTest,QString beginDate,QString currentDa
           s1 = 0,
           sx1,
           sx2,
-          t,
-          v,
+          t = 0,
+          v = 0,
           s2 = 0;
 
 
@@ -358,7 +367,7 @@ void MainWindow::calcStudent(int currentTest,QString beginDate,QString currentDa
     }
     if (!n1)
     {
-        QMessageBox::critical(this, tr("Помилка"),tr("Групи попереднього тестування %1 не тестувалися!").arg(beginDate), QMessageBox::Ok);
+        QMessageBox::critical(this, tr("Помилка"),tr("Вибрані групи %1 не тестувалися!").arg(beginDate), QMessageBox::Ok);
         return;
     }
     m1 /= float(n1);
@@ -370,7 +379,7 @@ void MainWindow::calcStudent(int currentTest,QString beginDate,QString currentDa
     }
     if (!n2)
     {
-        QMessageBox::critical(this, tr("Помилка"),tr("Групи поточного тестування %1 не тестувалися!").arg(beginDate), QMessageBox::Ok);
+        QMessageBox::critical(this, tr("Помилка"),tr("Вибрані групи %1 не тестувалися!").arg(currentDate), QMessageBox::Ok);
         return;
     }
     m2 /= float(n2);

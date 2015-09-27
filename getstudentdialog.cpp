@@ -10,6 +10,12 @@ GetStudentDialog::GetStudentDialog(QWidget *parent) :
     ui(new Ui::GetStudentDialog)
 {
     ui->setupUi(this);
+
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+    ui->deDate->setDateTime(QDateTime::currentDateTime());
+    connect(ui->leName, SIGNAL(textChanged(const QString&)), this, SLOT(slotChangeText(const QString&)));
+    connect(ui->leGroup, SIGNAL(textChanged(const QString&)), this, SLOT(slotChangeText(const QString&)));
+
     initDialog();
 }
 
@@ -51,12 +57,8 @@ void GetStudentDialog::initDialog(void)
     QStringList nameList,
                 groupList;
 
-    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     ui->leName->setFocus();
 
-    ui->deDate->setDateTime(QDateTime::currentDateTime());
-    connect(ui->leName, SIGNAL(textChanged(const QString&)), this, SLOT(slotChangeText(const QString&)));
-    connect(ui->leGroup, SIGNAL(textChanged(const QString&)), this, SLOT(slotChangeText(const QString&)));
 
     if (query.exec(QString("SELECT DISTINCT f_name FROM tbl_student ORDER BY f_name")))
     {
@@ -78,5 +80,6 @@ void GetStudentDialog::initDialog(void)
         completer2->setCaseSensitivity(Qt::CaseInsensitive);
         ui->leGroup->setCompleter(completer2);
     }
+//    ui->leName->setText("");
 }
 

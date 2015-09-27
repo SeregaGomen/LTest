@@ -18,13 +18,13 @@ public:
     QString getStudentGroup(void);
     QString getDate(void);
     int getStudentClass(void);
+    void initDialog(void);
 
 private slots:
     void slotChangeText(const QString&);
 
 private:
     Ui::GetStudentDialog *ui;
-    void initDialog(void);
 };
 
 #endif // GETSTUDENTDIALOG_H

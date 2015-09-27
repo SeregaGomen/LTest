@@ -14,19 +14,19 @@ ResultDialog::ResultDialog(int pi, QString pdt1, QString pdt2, int n1,int n2,int
                         "Мотиваційний тест"
                       };
     float ts[][4] =  {
-                         { 1, 12.71, 63.66, 0 },
-                         { 2, 4.30, 9.92, 31.60 },
-                         { 3, 3.18, 5.84, 12.92 },
-                         { 4, 2.78, 4.60, 8.61 },
-                         { 5, 2.57, 4.03, 6.87 },
-                         { 6, 2.45, 3.71, 5.96 },
-                         { 7, 2.37, 3.50, 5.41 },
-                         { 8, 2.31, 3.36, 5.04 },
-                         { 9, 2.26, 3.25, 4.78 },
-                         {10, 2.23, 3.17, 4.59 },
-                         {20, 2.09, 2.85, 3.85 },
-                         {30, 2.04, 2.75, 3.65 },
-                         {60, 2.00, 2.66, 3.46 }
+                         { 1, 12.71f, 63.66f, 0.0f },
+                         { 2, 4.30f, 9.92f, 31.60f },
+                         { 3, 3.18f, 5.84f, 12.92f },
+                         { 4, 2.78f, 4.60f, 8.61f },
+                         { 5, 2.57f, 4.03f, 6.87f },
+                         { 6, 2.45f, 3.71f, 5.96f },
+                         { 7, 2.37f, 3.50f, 5.41f },
+                         { 8, 2.31f, 3.36f, 5.04f },
+                         { 9, 2.26f, 3.25f, 4.78f },
+                         {10, 2.23f, 3.17f, 4.59f },
+                         {20, 2.09f, 2.85f, 3.85f },
+                         {30, 2.04f, 2.75f, 3.65f },
+                         {60, 2.00f, 2.66f, 3.46f }
                      };
 
 
@@ -59,6 +59,7 @@ ResultDialog::ResultDialog(int pi, QString pdt1, QString pdt2, int n1,int n2,int
         ui->twTable->setItem(i, 1, new QTableWidgetItem(QString("%1").arg(ts[i][1],6,'f',2)));
     }
     ui->twTable->setCurrentCell(index,0);
+    ui->twTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 }
 
 ResultDialog::~ResultDialog()

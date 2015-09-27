@@ -32,7 +32,7 @@ Test3Dialog::~Test3Dialog()
 
 void Test3Dialog::loadData(void)
 {
-    QSqlQuery query(QString("SELECT id FROM tbl_student WHERE f_name = '%1' AND f_group = '%2' AND f_class = %3 AND f_dt = '%4'").arg(name.toUpper()).arg(group.toUpper()).arg(course).arg(dt));
+    QSqlQuery query(QString("SELECT id FROM tbl_student WHERE f_name = '%1' AND f_group = '%2' AND f_class = %3").arg(name.toUpper()).arg(group.toUpper()).arg(course));
     QCheckBox* cb[][4] = {
                               {ui->cb11,ui->cb12,ui->cb13,NULL},
                               {ui->cb21,ui->cb22,ui->cb23,NULL},
@@ -50,7 +50,7 @@ void Test3Dialog::loadData(void)
     if (idStudent)
     {
         // Такая анкета уже есть, загружаем ее
-        query.exec(QString("SELECT * FROM tbl_test3 WHERE f_student = %1").arg(idStudent));
+        query.exec(QString("SELECT * FROM tbl_test3 WHERE f_student = %1 AND f_dt = '%2'").arg(idStudent).arg(dt));
         while (query.next())
             for (int i = 0; i < 8; i++)
             {
@@ -70,9 +70,11 @@ void Test3Dialog::loadData(void)
 void Test3Dialog::accept(void)
 {
     QSqlQuery query;
-    QString resTxt;
+    QString resTxt,
+            sql;
     int q[8],
         res;
+    bool isFind = false;
 
     if (!calcRes(res,q))
         return;
@@ -91,12 +93,21 @@ void Test3Dialog::accept(void)
             idStudent = query.value(0).toInt();
     }
     // Сохраняем анекту
-    if (!query.exec(QString("INSERT INTO tbl_test3 (f_student,f_dt,f_q1,f_q2,f_q3,f_q4,f_q5,f_q6,f_q7,f_q8,f_res) VALUES (%1,'%2',%3,%4,%5,%6,%7,%8,%9,%10,%11)").arg(idStudent).arg(dt).arg(q[0]).arg(q[1]).arg(q[2]).arg(q[3]).arg(q[4]).arg(q[5]).arg(q[6]).arg(q[7]).arg(res)))
+    query.exec(QString("SELECT * FROM tbl_test3 WHERE f_student = '%1' AND f_dt = '%2'").arg(idStudent).arg(dt));
+    while (query.next())
+        isFind = true;
+    if (isFind)
+        sql = QString("UPDATE tbl_test3 SET f_q1 = %1,f_q2 = %2,f_q3 = %3,f_q4 = %4,f_q5 = %5,f_q6 = %6,f_q7 = %7,f_q8 = %8,f_res = %9 WHERE f_student = %10 AND f_dt = '%11'").arg(q[0]).arg(q[1]).arg(q[2]).arg(q[3]).arg(q[4]).arg(q[5]).arg(q[6]).arg(q[7]).arg(res).arg(idStudent).arg(dt);
+    else
+        sql = QString("INSERT INTO tbl_test3 (f_student,f_dt,f_q1,f_q2,f_q3,f_q4,f_q5,f_q6,f_q7,f_q8,f_res) VALUES (%1,'%2',%3,%4,%5,%6,%7,%8,%9,%10,%11)").arg(idStudent).arg(dt).arg(q[0]).arg(q[1]).arg(q[2]).arg(q[3]).arg(q[4]).arg(q[5]).arg(q[6]).arg(q[7]).arg(res);
+    if (!query.exec(sql))
     {
         QMessageBox::critical(this, tr("Помилка"),tr("Помилка запису бази даних!"), QMessageBox::Ok);
-        qDebug() << query.lastError();
         return;
     }
+
+
+
     if (res < 10)
         resTxt = tr("Рівень когнітивного компоненту компоненту готовності: %1").arg("недостатній");
     else if (res >= 10 && res < 16)
