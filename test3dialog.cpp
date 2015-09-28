@@ -73,7 +73,8 @@ void Test3Dialog::accept(void)
     QString resTxt,
             sql;
     int q[8],
-        res;
+        res,
+        id = 0;
     bool isFind = false;
 
     if (!calcRes(res,q))
@@ -93,28 +94,54 @@ void Test3Dialog::accept(void)
             idStudent = query.value(0).toInt();
     }
     // Сохраняем анекту
-    query.exec(QString("SELECT * FROM tbl_test3 WHERE f_student = '%1' AND f_dt = '%2'").arg(idStudent).arg(dt));
+    query.exec(QString("SELECT id FROM tbl_test3 WHERE f_student = '%1' AND f_dt = '%2'").arg(idStudent).arg(dt));
+    while (query.next())
+    {
+        id = query.value(0).toInt();
+        isFind = true;
+    }
+    if (isFind)
+        sql = QString("UPDATE tbl_test3 SET f_q1 = %1,f_q2 = %2,f_q3 = %3,f_q4 = %4,f_q5 = %5,f_q6 = %6,f_q7 = %7,f_q8 = %8 WHERE f_student = %9 AND f_dt = '%10'").arg(q[0]).arg(q[1]).arg(q[2]).arg(q[3]).arg(q[4]).arg(q[5]).arg(q[6]).arg(q[7]).arg(idStudent).arg(dt);
+    else
+        sql = QString("INSERT INTO tbl_test3 (f_student,f_dt,f_q1,f_q2,f_q3,f_q4,f_q5,f_q6,f_q7,f_q8) VALUES (%1,'%2',%3,%4,%5,%6,%7,%8,%9,%10)").arg(idStudent).arg(dt).arg(q[0]).arg(q[1]).arg(q[2]).arg(q[3]).arg(q[4]).arg(q[5]).arg(q[6]).arg(q[7]);
+    if (!query.exec(sql))
+    {
+        QMessageBox::critical(this, tr("Помилка"),tr("Помилка запису бази даних!"), QMessageBox::Ok);
+        return;
+    }
+    // Определяем номер анкеты
+    if (!id)
+    {
+        query.exec(QString("SELECT id FROM tbl_test3 WHERE f_student = '%1' AND f_dt = '%2'").arg(idStudent).arg(dt));
+        while (query.next())
+            id = query.value(0).toInt();
+    }
+
+
+
+    if (res < 10)
+        resTxt = tr("недостатній");
+    else if (res >= 10 && res < 16)
+        resTxt = tr("достатній");
+    else
+        resTxt = tr("професійний");
+    QMessageBox::information(this, tr("Результат"),tr("Рівень когнітивного компоненту компоненту готовності: %1").arg(resTxt), QMessageBox::Ok);
+
+    // Сохраняем результаты
+    isFind = false;
+    query.exec(QString("SELECT * FROM tbl_results WHERE f_student = '%1' AND f_dt = '%2'").arg(idStudent).arg(dt));
     while (query.next())
         isFind = true;
     if (isFind)
-        sql = QString("UPDATE tbl_test3 SET f_q1 = %1,f_q2 = %2,f_q3 = %3,f_q4 = %4,f_q5 = %5,f_q6 = %6,f_q7 = %7,f_q8 = %8,f_res = %9 WHERE f_student = %10 AND f_dt = '%11'").arg(q[0]).arg(q[1]).arg(q[2]).arg(q[3]).arg(q[4]).arg(q[5]).arg(q[6]).arg(q[7]).arg(res).arg(idStudent).arg(dt);
+        sql = QString("UPDATE tbl_results SET f_id3 = %1,f_res3 = %2,f_legend3 = '%3' WHERE f_student = '%4' AND f_dt = '%5'").arg(id).arg(res).arg(resTxt).arg(idStudent).arg(dt);
     else
-        sql = QString("INSERT INTO tbl_test3 (f_student,f_dt,f_q1,f_q2,f_q3,f_q4,f_q5,f_q6,f_q7,f_q8,f_res) VALUES (%1,'%2',%3,%4,%5,%6,%7,%8,%9,%10,%11)").arg(idStudent).arg(dt).arg(q[0]).arg(q[1]).arg(q[2]).arg(q[3]).arg(q[4]).arg(q[5]).arg(q[6]).arg(q[7]).arg(res);
+        sql = QString("INSERT INTO tbl_results (f_student,f_dt,f_id3,f_res3,f_legend3) VALUES (%1,'%2',%3,%4,'%5')").arg(idStudent).arg(dt).arg(id).arg(res).arg(resTxt);
     if (!query.exec(sql))
     {
         QMessageBox::critical(this, tr("Помилка"),tr("Помилка запису бази даних!"), QMessageBox::Ok);
         return;
     }
 
-
-
-    if (res < 10)
-        resTxt = tr("Рівень когнітивного компоненту компоненту готовності: %1").arg("недостатній");
-    else if (res >= 10 && res < 16)
-        resTxt = tr("Рівень когнітивного компоненту компоненту готовності: %1").arg("достатній");
-    else
-        resTxt = tr("Рівень когнітивного компоненту компоненту готовності: %1").arg("професійний");
-    QMessageBox::information(this, tr("Результат"),resTxt, QMessageBox::Ok);
     QDialog::accept();
 }
 

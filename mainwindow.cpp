@@ -111,48 +111,56 @@ bool MainWindow::createDB(QString fileName)
         db.close();
         return false;
     }
-    // Test 1
-    if (!query.exec(QString("CREATE TABLE tbl_test1 (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, f_student INTEGER NOT NULL, f_dt TEXT, f_q1 INTEGER, f_q2 INTEGER, f_q3 INTEGER, f_q4 INTEGER, f_q5 INTEGER, f_q6 INTEGER, f_q7 INTEGER, f_q8 INTEGER, f_q9 INTEGER, f_res INTEGER )")))
+    // Test1
+    if (!query.exec(QString("CREATE TABLE tbl_test1 (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, f_student INTEGER NOT NULL, f_dt TEXT, f_q1 INTEGER, f_q2 INTEGER, f_q3 INTEGER, f_q4 INTEGER, f_q5 INTEGER, f_q6 INTEGER, f_q7 INTEGER, f_q8 INTEGER, f_q9 INTEGER)")))
     {
         QMessageBox::critical(this, tr("Помилка"),tr("Помилка створення бази даних!"), QMessageBox::Ok);
         qDebug() << db.lastError();
         db.close();
         return false;
     }
-    // Test 2
-    if (!query.exec(QString("CREATE TABLE tbl_test2 (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, f_student INTEGER NOT NULL, f_dt TEXT, f_q1 INTEGER, f_q2 INTEGER, f_q3 INTEGER, f_q4 INTEGER, f_q5 INTEGER, f_q6 INTEGER, f_q7 INTEGER, f_res INTEGER )")))
+    // Test2
+    if (!query.exec(QString("CREATE TABLE tbl_test2 (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, f_student INTEGER NOT NULL, f_dt TEXT, f_q1 INTEGER, f_q2 INTEGER, f_q3 INTEGER, f_q4 INTEGER, f_q5 INTEGER, f_q6 INTEGER, f_q7 INTEGER)")))
     {
         QMessageBox::critical(this, tr("Помилка"),tr("Помилка створення бази даних!"), QMessageBox::Ok);
         qDebug() << db.lastError();
         db.close();
         return false;
     }
-    // Test 3
-    if (!query.exec(QString("CREATE TABLE tbl_test3 (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, f_student INTEGER NOT NULL, f_dt TEXT, f_q1 INTEGER, f_q2 INTEGER, f_q3 INTEGER, f_q4 INTEGER, f_q5 INTEGER, f_q6 INTEGER, f_q7 INTEGER, f_q8 INTEGER, f_res INTEGER )")))
+    // Test3
+    if (!query.exec(QString("CREATE TABLE tbl_test3 (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, f_student INTEGER NOT NULL, f_dt TEXT, f_q1 INTEGER, f_q2 INTEGER, f_q3 INTEGER, f_q4 INTEGER, f_q5 INTEGER, f_q6 INTEGER, f_q7 INTEGER, f_q8 INTEGER)")))
     {
         QMessageBox::critical(this, tr("Помилка"),tr("Помилка створення бази даних!"), QMessageBox::Ok);
         qDebug() << db.lastError();
         db.close();
         return false;
     }
-    // Test 4
-    if (!query.exec(QString("CREATE TABLE tbl_test4 (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, f_student INTEGER NOT NULL, f_dt TEXT, f_q1 INTEGER, f_q2 INTEGER, f_q3 INTEGER, f_q4 INTEGER, f_q5 INTEGER, f_q6 INTEGER, f_q7 INTEGER, f_q8 INTEGER, f_res INTEGER )")))
+    // Test4
+    if (!query.exec(QString("CREATE TABLE tbl_test4 (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, f_student INTEGER NOT NULL, f_dt TEXT, f_q1 INTEGER, f_q2 INTEGER, f_q3 INTEGER, f_q4 INTEGER, f_q5 INTEGER, f_q6 INTEGER, f_q7 INTEGER, f_q8 INTEGER)")))
     {
         QMessageBox::critical(this, tr("Помилка"),tr("Помилка створення бази даних!"), QMessageBox::Ok);
         qDebug() << db.lastError();
         db.close();
         return false;
     }
-    // Test 5
-    if (!query.exec(QString("CREATE TABLE tbl_test5 (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, f_student INTEGER NOT NULL, f_dt TEXT, f_q1 INTEGER, f_q2 INTEGER, f_q3 INTEGER, f_q4 INTEGER, f_q5 INTEGER, f_q6 INTEGER, f_q7 INTEGER, f_q8 INTEGER, f_q9 INTEGER, f_q10 INTEGER, f_q11 INTEGER, f_q12 INTEGER, f_q13 INTEGER, f_q14 INTEGER, f_q15 INTEGER, f_q16 INTEGER, f_q17 INTEGER, f_q18 INTEGER, f_res INTEGER )")))
+    // Test5
+    if (!query.exec(QString("CREATE TABLE tbl_test5 (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, f_student INTEGER NOT NULL, f_dt TEXT, f_q1 INTEGER, f_q2 INTEGER, f_q3 INTEGER, f_q4 INTEGER, f_q5 INTEGER, f_q6 INTEGER, f_q7 INTEGER, f_q8 INTEGER, f_q9 INTEGER, f_q10 INTEGER, f_q11 INTEGER, f_q12 INTEGER, f_q13 INTEGER, f_q14 INTEGER, f_q15 INTEGER, f_q16 INTEGER, f_q17 INTEGER, f_q18 INTEGER)")))
     {
         QMessageBox::critical(this, tr("Помилка"),tr("Помилка створення бази даних!"), QMessageBox::Ok);
         qDebug() << db.lastError();
         db.close();
         return false;
     }
-    // Test 6
-    if (!query.exec(QString("CREATE TABLE tbl_test6 (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, f_student INTEGER NOT NULL, f_dt TEXT, f_q1 INTEGER, f_q2 INTEGER, f_q3 INTEGER, f_q4 INTEGER, f_q5 INTEGER, f_q6 INTEGER, f_q7 INTEGER, f_q8 INTEGER, f_q9 INTEGER, f_q10 INTEGER, f_q11 INTEGER, f_q12 INTEGER, f_q13 INTEGER, f_q14 INTEGER, f_q15 INTEGER, f_q16 INTEGER, f_q17 INTEGER, f_q18 INTEGER, f_q19 INTEGER, f_q20 INTEGER, f_q21 INTEGER, f_q22 INTEGER, f_q23 INTEGER, f_res INTEGER )")))
+    // Test6
+    if (!query.exec(QString("CREATE TABLE tbl_test6 (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, f_student INTEGER NOT NULL, f_dt TEXT, f_q1 INTEGER, f_q2 INTEGER, f_q3 INTEGER, f_q4 INTEGER, f_q5 INTEGER, f_q6 INTEGER, f_q7 INTEGER, f_q8 INTEGER, f_q9 INTEGER, f_q10 INTEGER, f_q11 INTEGER, f_q12 INTEGER, f_q13 INTEGER, f_q14 INTEGER, f_q15 INTEGER, f_q16 INTEGER, f_q17 INTEGER, f_q18 INTEGER, f_q19 INTEGER, f_q20 INTEGER, f_q21 INTEGER, f_q22 INTEGER, f_q23 INTEGER)")))
+    {
+        QMessageBox::critical(this, tr("Помилка"),tr("Помилка створення бази даних!"), QMessageBox::Ok);
+        qDebug() << db.lastError();
+        db.close();
+        return false;
+    }
+    // Results
+    if (!query.exec(QString("CREATE TABLE tbl_results (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, f_student INTEGER NOT NULL, f_dt TEXT, f_id1 INTEGER, f_res1 INTEGER, f_legend1 TEXT, f_id2 INTEGER, f_res2 INTEGER, f_legend2 TEXT, f_id3 INTEGER, f_res3 INTEGER, f_legend3 TEXT, f_id4 INTEGER, f_res4 INTEGER, f_legend4 TEXT, f_id5 INTEGER, f_res5 INTEGER, f_legend5 TEXT, f_id6 INTEGER, f_res6 INTEGER, f_legend6 TEXT)")))
     {
         QMessageBox::critical(this, tr("Помилка"),tr("Помилка створення бази даних!"), QMessageBox::Ok);
         qDebug() << db.lastError();
