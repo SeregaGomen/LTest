@@ -357,13 +357,14 @@ void MainWindow::calcStudent(int currentTest,QString beginDate,QString currentDa
             currentPredicate += ",";
     }
 
-    if (!beginQuery.exec(QString("SELECT f_res, f_dt FROM tbl_test%1,tbl_student WHERE (tbl_student.id = f_student) AND f_dt='%2' AND tbl_student.f_group IN (%3)").arg(currentTest + 1).arg(beginDate).arg(beginPredicate)))
+
+    if (!beginQuery.exec(QString("SELECT f_res%1 FROM tbl_results,tbl_student,tbl_test%1 WHERE tbl_test%1.id = tbl_results.f_id%1 AND tbl_student.id = tbl_results.f_student AND tbl_results.f_dt='%2' AND tbl_student.f_group IN (%3)").arg(currentTest + 1).arg(beginDate).arg(beginPredicate)))
     {
         QMessageBox::critical(this, tr("Помилка"),tr("Помилка доступу до бази даних!"), QMessageBox::Ok);
         qDebug() << beginQuery.lastError();
         return;
     }
-    if (!currentQuery.exec(QString("SELECT f_res, f_dt FROM tbl_test%1,tbl_student WHERE (tbl_student.id = f_student) AND f_dt='%2' AND tbl_student.f_group IN (%3)").arg(currentTest + 1).arg(currentDate).arg(currentPredicate)))
+    if (!currentQuery.exec(QString("SELECT f_res%1 FROM tbl_results,tbl_student,tbl_test%1 WHERE tbl_test%1.id = tbl_results.f_id%1 AND tbl_student.id = tbl_results.f_student AND tbl_results.f_dt='%2' AND tbl_student.f_group IN (%3)").arg(currentTest + 1).arg(currentDate).arg(currentPredicate)))
     {
         QMessageBox::critical(this, tr("Помилка"),tr("Помилка доступу до бази даних!"), QMessageBox::Ok);
         qDebug() << currentQuery.lastError();
@@ -393,14 +394,24 @@ void MainWindow::calcStudent(int currentTest,QString beginDate,QString currentDa
     }
     m2 /= float(n2);
 
-    beginQuery.first();
+    if (!beginQuery.exec(QString("SELECT f_res%1 FROM tbl_results,tbl_student,tbl_test%1 WHERE tbl_test%1.id = tbl_results.f_id%1 AND tbl_student.id = tbl_results.f_student AND tbl_results.f_dt='%2' AND tbl_student.f_group IN (%3)").arg(currentTest + 1).arg(beginDate).arg(beginPredicate)))
+    {
+        QMessageBox::critical(this, tr("Помилка"),tr("Помилка доступу до бази даних!"), QMessageBox::Ok);
+        qDebug() << beginQuery.lastError();
+        return;
+    }
     while (beginQuery.next())
         s1 += (m1 - beginQuery.value(0).toFloat())*(m1 - beginQuery.value(0).toFloat());
     s1 /= float(n1);
     s1 = sqrt(s1);
     sx1 = s1/sqrt(float(n1));
 
-    currentQuery.first();
+    if (!currentQuery.exec(QString("SELECT f_res%1 FROM tbl_results,tbl_student,tbl_test%1 WHERE tbl_test%1.id = tbl_results.f_id%1 AND tbl_student.id = tbl_results.f_student AND tbl_results.f_dt='%2' AND tbl_student.f_group IN (%3)").arg(currentTest + 1).arg(currentDate).arg(currentPredicate)))
+    {
+        QMessageBox::critical(this, tr("Помилка"),tr("Помилка доступу до бази даних!"), QMessageBox::Ok);
+        qDebug() << currentQuery.lastError();
+        return;
+    }
     while (currentQuery.next())
         s2 += (m2 - currentQuery.value(0).toFloat())*(m2 - currentQuery.value(0).toFloat());
     s2 /= float(n2);
