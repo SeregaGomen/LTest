@@ -11,13 +11,13 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Результати анкетування</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QToolButton" name="toolButton">
+      <widget class="QToolButton" name="tbFirst">
        <property name="toolTip">
         <string>Перейти до початку таблиці</string>
        </property>
@@ -31,7 +31,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="toolButton_4">
+      <widget class="QToolButton" name="tbPrev">
        <property name="toolTip">
         <string>Перейти до попереднього рядка таблиці</string>
        </property>
@@ -45,7 +45,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="toolButton_3">
+      <widget class="QToolButton" name="tbNext">
        <property name="toolTip">
         <string>Перейти до наступного рядка таблиці</string>
        </property>
@@ -59,7 +59,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="toolButton_9">
+      <widget class="QToolButton" name="tbLast">
        <property name="toolTip">
         <string>Перейти в кінець таблиці</string>
        </property>
@@ -73,7 +73,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="toolButton_2">
+      <widget class="QToolButton" name="tbDel">
        <property name="toolTip">
         <string>Вилучити анкети з поточного рядка</string>
        </property>
@@ -100,7 +100,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="toolButton_5">
+      <widget class="QToolButton" name="tb1">
        <property name="toolTip">
         <string>Редагувати діяльнісно-операційний тест</string>
        </property>
@@ -117,7 +117,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="toolButton_6">
+      <widget class="QToolButton" name="tb2">
        <property name="toolTip">
         <string>Редагувати інформаційно-технологічний тест</string>
        </property>
@@ -134,7 +134,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="toolButton_7">
+      <widget class="QToolButton" name="tb3">
        <property name="toolTip">
         <string>Редагувати когнітивний тест з маркетингу туризму</string>
        </property>
@@ -151,7 +151,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="toolButton_8">
+      <widget class="QToolButton" name="tb4">
        <property name="toolTip">
         <string>Редагувати когнітивний тест з менеджменту</string>
        </property>
@@ -168,7 +168,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="toolButton_10">
+      <widget class="QToolButton" name="tb5">
        <property name="toolTip">
         <string>Редагувати особистісно-творчий тест</string>
        </property>
@@ -185,7 +185,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="toolButton_11">
+      <widget class="QToolButton" name="tb6">
        <property name="toolTip">
         <string>Редагувати мотиваційний тест</string>
        </property>
@@ -217,7 +217,93 @@
     </layout>
    </item>
    <item>
-    <widget class="QTableWidget" name="tableWidget"/>
+    <widget class="QTableWidget" name="tableWidget">
+     <column>
+      <property name="text">
+       <string>ПІБ студента</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Група</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Курс</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Дата</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Діяльнісно-операційний тест</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Інформаційно-технологічний тест</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Когнітивний тест з маркетингу туризму</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Когнітивний тест з менеджменту</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Особистісно-творчий тест</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Мотиваційний тест</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Id</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Id1</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Id2</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Id3</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Id4</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Id5</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Id6</string>
+      </property>
+     </column>
+    </widget>
    </item>
   </layout>
  </widget>
