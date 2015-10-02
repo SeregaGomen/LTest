@@ -25,6 +25,7 @@ private:
     QString dt;
     int course;
     int idStudent;
+    int res;
     void loadData(void);
     bool calcRes(int&,int*);
 };

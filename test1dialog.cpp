@@ -75,7 +75,6 @@ void Test1Dialog::accept(void)
     QString resTxt,
             sql;
     int q[9],
-        res,
         id = 0;
     bool isFind = false;
 
@@ -144,8 +143,6 @@ void Test1Dialog::accept(void)
         qDebug() << query.lastError();
         return;
     }
-
-
     QDialog::accept();
 }
 
