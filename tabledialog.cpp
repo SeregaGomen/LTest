@@ -4,6 +4,13 @@
 #include <QMessageBox>
 #include "tabledialog.h"
 #include "ui_tabledialog.h"
+#include "test1dialog.h"
+#include "test2dialog.h"
+#include "test3dialog.h"
+#include "test4dialog.h"
+#include "test5dialog.h"
+#include "test6dialog.h"
+
 
 TableDialog::TableDialog(QWidget *parent) :
     QDialog(parent),
@@ -18,12 +25,59 @@ TableDialog::~TableDialog()
     delete ui;
 }
 
+void TableDialog::slotTest4(void)
+{
+    Test3Dialog *dlg;
+    QString dt = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 3).data().toString(),
+            name = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 0).data().toString(),
+            group = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 1).data().toString();
+    int course = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 2).data().toInt();
+
+    dlg = new Test3Dialog(dt,name,group,course,this);
+    dlg->exec();
+
+}
+void TableDialog::slotTest5(void)
+{
+    Test5Dialog *dlg;
+    QString dt = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 3).data().toString(),
+            name = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 0).data().toString(),
+            group = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 1).data().toString();
+    int course = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 2).data().toInt();
+
+    dlg = new Test5Dialog(dt,name,group,course,this);
+    dlg->exec();
+
+}
+void TableDialog::slotTest6(void)
+{
+    Test6Dialog *dlg;
+    QString dt = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 3).data().toString(),
+            name = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 0).data().toString(),
+            group = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 1).data().toString();
+    int course = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 2).data().toInt();
+
+    dlg = new Test6Dialog(dt,name,group,course,this);
+    dlg->exec();
+
+}
+
 void TableDialog::setupDialog(void)
 {
     QSqlQuery query;
     int i = 0;
 
 
+    ui->tbFirst->setEnabled(false);
+    ui->tbPrior->setEnabled(false);
+    ui->tbNext->setEnabled(false);
+    ui->tbLast->setEnabled(false);
+    ui->tb1->setEnabled(false);
+    ui->tb2->setEnabled(false);
+    ui->tb3->setEnabled(false);
+    ui->tb4->setEnabled(false);
+    ui->tb5->setEnabled(false);
+    ui->tb6->setEnabled(false);
 
     if (!query.exec(QString("SELECT tbl_student.f_name,tbl_student.f_group,tbl_student.f_class,tbl_results.f_dt,f_res1,f_legend1,f_res2,f_legend2,f_res3,f_legend3,f_res4,f_legend4,f_res5,f_legend5,f_res6,f_legend6,tbl_results.id,f_id1,f_id2,f_id3,f_id4,f_id5,f_id6  \
                              FROM tbl_results,tbl_student,tbl_test1,tbl_test2,tbl_test3,tbl_test4,tbl_test5,tbl_test6 \
@@ -65,20 +119,84 @@ void TableDialog::setupDialog(void)
         ui->tableWidget->setColumnHidden(i,true);
 
     connect(ui->tableWidget->selectionModel(), SIGNAL(selectionChanged(QItemSelection, QItemSelection)), this, SLOT(setEnabledBtn(QItemSelection, QItemSelection)));
+    connect(ui->tbFirst, SIGNAL(clicked(bool)), this, SLOT(slotFirst()));
+    connect(ui->tbPrior, SIGNAL(clicked(bool)), this, SLOT(slotPrior()));
+    connect(ui->tbNext, SIGNAL(clicked(bool)), this, SLOT(slotNext()));
+    connect(ui->tbLast, SIGNAL(clicked(bool)), this, SLOT(slotLast()));
+
+    connect(ui->tb1, SIGNAL(clicked(bool)), this, SLOT(slotTest1()));
+    connect(ui->tb2, SIGNAL(clicked(bool)), this, SLOT(slotTest2()));
+    connect(ui->tb3, SIGNAL(clicked(bool)), this, SLOT(slotTest3()));
+    connect(ui->tb4, SIGNAL(clicked(bool)), this, SLOT(slotTest4()));
+    connect(ui->tb5, SIGNAL(clicked(bool)), this, SLOT(slotTest5()));
+    connect(ui->tb6, SIGNAL(clicked(bool)), this, SLOT(slotTest6()));
 }
 
 void TableDialog::setEnabledBtn(QItemSelection,QItemSelection)
 {
-    ui->tbFirst->setEnabled(ui->tableWidget->selectionModel()->hasSelection());
-    ui->tbPrev->setEnabled(ui->tableWidget->selectionModel()->hasSelection());
-    ui->tbNext->setEnabled(ui->tableWidget->selectionModel()->hasSelection());
-    ui->tbLast->setEnabled(ui->tableWidget->selectionModel()->hasSelection());
-    ui->tbDel->setEnabled(ui->tableWidget->selectionModel()->hasSelection());
+    bool isSel = ui->tableWidget->selectionModel()->hasSelection();
+
+    ui->tbFirst->setEnabled(isSel && ui->tableWidget->currentRow() != 0);
+    ui->tbPrior->setEnabled(isSel && ui->tableWidget->currentRow() != 0);
+    ui->tbNext->setEnabled(isSel && ui->tableWidget->currentRow() != ui->tableWidget->rowCount() - 1);
+    ui->tbLast->setEnabled(isSel && ui->tableWidget->currentRow() != ui->tableWidget->rowCount() - 1);
+
+    ui->tb1->setEnabled(isSel);
+    ui->tb2->setEnabled(isSel);
+    ui->tb3->setEnabled(isSel);
+    ui->tb4->setEnabled(isSel);
+    ui->tb5->setEnabled(isSel);
+    ui->tb6->setEnabled(isSel);
 }
 
-void TableDialog::checkButtons(void)
+void TableDialog::slotFirst(void)
 {
-    if (ui->tableWidget->rowCount())
-    {
-    }
+    ui->tableWidget->setCurrentIndex(ui->tableWidget->model()->index(0, ui->tableWidget->currentColumn()));
+}
+
+void TableDialog::slotPrior(void)
+{
+    ui->tableWidget->setCurrentIndex(ui->tableWidget->model()->index(ui->tableWidget->currentRow() - 1, ui->tableWidget->currentColumn()));
+}
+void TableDialog::slotNext(void)
+{
+    ui->tableWidget->setCurrentIndex(ui->tableWidget->model()->index(ui->tableWidget->currentRow() + 1, ui->tableWidget->currentColumn()));
+}
+void TableDialog::slotLast(void)
+{
+    ui->tableWidget->setCurrentIndex(ui->tableWidget->model()->index(ui->tableWidget->rowCount() - 1, ui->tableWidget->currentColumn()));
+}
+
+void TableDialog::slotTest1(void)
+{
+    Test1Dialog *dlg;
+    QString dt = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 3).data().toString(),
+            name = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 0).data().toString(),
+            group = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 1).data().toString();
+    int course = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 2).data().toInt();
+
+    dlg = new Test1Dialog(dt,name,group,course,this);
+    dlg->exec();
+}
+void TableDialog::slotTest2(void)
+{
+    Test2Dialog *dlg;
+    QString dt = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 3).data().toString(),
+            name = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 0).data().toString(),
+            group = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 1).data().toString();
+    int course = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 2).data().toInt();
+
+    dlg = new Test2Dialog(dt,name,group,course,this);
+    dlg->exec();
+}
+void TableDialog::slotTest3(void)
+{
+    Test3Dialog *dlg;
+    QString dt = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 3).data().toString(),
+            name = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 0).data().toString(),
+            group = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 1).data().toString();
+    int course = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 2).data().toInt();
+
+    dlg = new Test3Dialog(dt,name,group,course,this);
+    dlg->exec();
 }
