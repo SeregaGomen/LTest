@@ -14,6 +14,8 @@ class Test2Dialog : public QDialog
 public:
     explicit Test2Dialog(QString,QString,QString,int,QWidget *parent = 0);
     ~Test2Dialog();
+    QString getLegend(void);
+    int getResults(void);
 
 public slots:
     void accept(void);
@@ -25,6 +27,7 @@ private:
     QString dt;
     int course;
     int idStudent;
+    int res;
     void loadData(void);
     bool calcRes(int&,int*);
 };

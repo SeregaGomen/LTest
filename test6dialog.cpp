@@ -81,8 +81,7 @@ void Test6Dialog::accept(void)
     QString resTxt,
             sql;
     int q[23],
-        id = 0,
-        res;
+        id = 0;
     bool isFind = false;
 
     if (!calcRes(res,q))
@@ -199,4 +198,23 @@ bool Test6Dialog::calcRes(int& res,int* q)
             res++;
     }
     return true;
+}
+
+QString Test6Dialog::getLegend(void)
+{
+    QString resTxt;
+
+    if (res < 12)
+        resTxt = tr("недостатній");
+    else if (res >= 12 && res < 16)
+        resTxt = tr("достатній");
+    else
+        resTxt = tr("професійний");
+
+    return resTxt;
+}
+
+int Test6Dialog::getResults(void)
+{
+    return res;
 }

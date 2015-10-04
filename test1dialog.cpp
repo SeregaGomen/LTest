@@ -193,3 +193,22 @@ bool Test1Dialog::calcRes(int& res,int* q)
     }
     return true;
 }
+
+QString Test1Dialog::getLegend(void)
+{
+    QString resTxt;
+
+    if (res < 17)
+        resTxt = tr("недостатній");
+    else if (res >= 17 && res < 26)
+        resTxt = tr("достатній");
+    else
+        resTxt = tr("професійний");
+
+    return resTxt;
+}
+
+int Test1Dialog::getResults(void)
+{
+    return res;
+}

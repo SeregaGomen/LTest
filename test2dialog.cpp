@@ -71,7 +71,6 @@ void Test2Dialog::accept(void)
     QString resTxt,
             sql;
     int q[9],
-        res,
         id = 0;
     bool isFind = false;
 
@@ -187,4 +186,23 @@ bool Test2Dialog::calcRes(int& res,int* q)
         }
     }
     return true;
+}
+
+QString Test2Dialog::getLegend(void)
+{
+    QString resTxt;
+
+    if (res < 7)
+        resTxt = tr("недостатній");
+    else if (res == 7)
+        resTxt = tr("достатній");
+    else
+        resTxt = tr("професійний");
+
+    return resTxt;
+}
+
+int Test2Dialog::getResults(void)
+{
+    return res;
 }

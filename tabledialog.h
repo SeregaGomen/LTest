@@ -8,6 +8,8 @@ namespace Ui {
 class TableDialog;
 }
 
+class QMenu;
+
 class TableDialog : public QDialog
 {
     Q_OBJECT
@@ -28,10 +30,13 @@ private slots:
     void slotTest4(void);
     void slotTest5(void);
     void slotTest6(void);
+    void showContextMenu(const QPoint&);
 
 private:
     Ui::TableDialog *ui;
+    QMenu* menu;    // Контекстные меню
     void setupDialog(void);
+    void createMenu(void);
 };
 
 #endif // TABLEDIALOG_H

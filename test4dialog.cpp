@@ -81,7 +81,6 @@ void Test4Dialog::accept(void)
     QString resTxt,
             sql;
     int q[8],
-        res,
         id = 0;
     bool isFind = false;
 
@@ -206,4 +205,23 @@ bool Test4Dialog::calcRes(int& res,int* q)
     if (q[7] == 1)
         res += 1;
     return true;
+}
+
+QString Test4Dialog::getLegend(void)
+{
+    QString resTxt;
+
+    if (res < 5)
+        resTxt = tr("недостатній");
+    else if (res >= 5 && res < 8)
+        resTxt = tr("достатній");
+    else
+        resTxt = tr("професійний");
+
+    return resTxt;
+}
+
+int Test4Dialog::getResults(void)
+{
+    return res;
 }

@@ -79,7 +79,6 @@ void Test5Dialog::accept(void)
     QString resTxt,
             sql;
     int q[18],
-        res,
         id = 0;
     bool isFind = false;
 
@@ -197,4 +196,23 @@ bool Test5Dialog::calcRes(int& res,int* q)
         }
     }
     return true;
+}
+
+QString Test5Dialog::getLegend(void)
+{
+    QString resTxt;
+
+    if (res < 24)
+        resTxt = tr("недостатній");
+    else if (res >= 24 && res < 36)
+        resTxt = tr("достатній");
+    else
+        resTxt = tr("професійний");
+
+    return resTxt;
+}
+
+int Test5Dialog::getResults(void)
+{
+    return res;
 }

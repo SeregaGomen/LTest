@@ -251,41 +251,6 @@
        <string>Мотиваційний тест</string>
       </property>
      </column>
-     <column>
-      <property name="text">
-       <string>Id</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Id1</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Id2</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Id3</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Id4</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Id5</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>Id6</string>
-      </property>
-     </column>
     </widget>
    </item>
   </layout>

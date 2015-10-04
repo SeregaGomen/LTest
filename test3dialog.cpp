@@ -73,7 +73,6 @@ void Test3Dialog::accept(void)
     QString resTxt,
             sql;
     int q[8],
-        res,
         id = 0;
     bool isFind = false;
 
@@ -192,4 +191,23 @@ bool Test3Dialog::calcRes(int& res,int* q)
     if (q[7] == _1_)
         res += 1;
     return true;
+}
+
+QString Test3Dialog::getLegend(void)
+{
+    QString resTxt;
+
+    if (res < 10)
+        resTxt = tr("недостатній");
+    else if (res >= 10 && res < 16)
+        resTxt = tr("достатній");
+    else
+        resTxt = tr("професійний");
+
+    return resTxt;
+}
+
+int Test3Dialog::getResults(void)
+{
+    return res;
 }
