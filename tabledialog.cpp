@@ -1,4 +1,3 @@
-#include <QMenu>
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDebug>
@@ -25,20 +24,64 @@ TableDialog::TableDialog(QWidget *parent) :
 TableDialog::~TableDialog()
 {
     delete ui;
-//    delete menu;
 }
 
 void TableDialog::createMenu(void)
 {
-    menu = new QMenu(this);
-    menu->addAction(new QAction(tr("&Select all"), this));
-    menu->addAction(new QAction(tr("Clear &all"), this));
-    menu->addSeparator();
-    menu->addAction(new QAction(tr("Select &X"), this));
-    menu->addAction(new QAction(tr("Select &Y"), this));
-    menu->addAction(new QAction(tr("Select &Z"), this));
-    menu->addSeparator();
-    menu->addAction(new QAction(tr("&Remove all"), this));
+    delMenu = menu.addMenu("&Вилучити");
+    delMenu->addAction("&Всі поточні тести...");
+    delMenu->addAction("&Діяльнісно-операційний тест...");
+    delMenu->addAction("&Інформаційно-технологічний тест...");
+    delMenu->addAction("Когнітивний тест з маркетингу &туризму");
+    delMenu->addAction("Когнітивний тест з &менеджменту...");
+    delMenu->addAction("&Особистісно-творчий тест...");
+    delMenu->addAction("Моти&ваційний тест...");
+}
+
+void TableDialog::removeTest(int no)
+{
+    QSqlQuery query;
+    QString dt = ui->tableWidget->model()->index(ui->tableWidget->currentRow(),3).data().toString();
+    int idStudent = ui->tableWidget->model()->index(ui->tableWidget->currentRow(),10).data().toInt(),
+        id = ui->tableWidget->model()->index(ui->tableWidget->currentRow(),11).data().toInt();
+
+    if (QMessageBox::question(this,tr("Підтвердження"),tr("Ви впевнені, що бажаєте вилучити інформацію?"),QMessageBox::Yes, QMessageBox::No) != QMessageBox::Yes)
+        return;
+
+    if (no == 0)
+    {
+        // Удалить все анкеты
+        for (int i = 1; i < 7; i++)
+            if (!query.exec(QString("DELETE FROM tbl_test%1 WHERE f_student = %2 AND f_dt = '%3'").arg(i).arg(idStudent).arg(dt)))
+            {
+                QMessageBox::critical(this, tr("Помилка"),tr("Помилка доступу до бази даних!"), QMessageBox::Ok);
+                qDebug() << query.lastError();
+                return;
+            }
+        if (!query.exec(QString("DELETE FROM tbl_results WHERE id = %1").arg(id)))
+        {
+            QMessageBox::critical(this, tr("Помилка"),tr("Помилка доступу до бази даних!"), QMessageBox::Ok);
+            qDebug() << query.lastError();
+            return;
+        }
+        ui->tableWidget->removeRow(ui->tableWidget->currentRow());
+    }
+    else
+    {
+        if (!query.exec(QString("DELETE FROM tbl_test%1 WHERE f_student = %2 AND f_dt = '%3'").arg(no).arg(idStudent).arg(dt)))
+        {
+            QMessageBox::critical(this, tr("Помилка"),tr("Помилка доступу до бази даних!"), QMessageBox::Ok);
+            qDebug() << query.lastError();
+            return;
+        }
+        if (!query.exec(QString("UPDATE tbl_results SET f_id%1 = NULL,f_res%1 = NULL,f_legend%1 = NULL WHERE id = %2").arg(no).arg(id)))
+        {
+            QMessageBox::critical(this, tr("Помилка"),tr("Помилка доступу до бази даних!"), QMessageBox::Ok);
+            qDebug() << query.lastError();
+            return;
+        }
+        ui->tableWidget->setItem(ui->tableWidget->currentRow(), 3 + no, new QTableWidgetItem(QString("")));
+    }
 }
 
 
@@ -53,20 +96,22 @@ void TableDialog::showContextMenu(const QPoint &pos)
     else
         globalPos = ((QWidget*)sender())->mapToGlobal(pos);
 
-    if ((selectedItem = menu->exec(globalPos)))
+    if ((selectedItem = menu.exec(globalPos)))
     {
-//        if (selectedItem == menu.actions().at(0))
-//            setDirect(twPtr,_X_ | _Y_ | _Z_);
-//        else if (selectedItem == menu->actions().at(1))
-//            setDirect(twPtr,0);
-//        else if (selectedItem == menu->actions().at(3))
-//            setDirect(twPtr,_X_);
-//        else if (selectedItem == menu->actions().at(4))
-//            setDirect(twPtr,_Y_);
-//        else if (selectedItem == menu->actions().at(5))
-//            setDirect(twPtr,_Z_);
-//        else if (selectedItem == menu->actions().at(7))
-//            removeAllRows(twPtr);
+        if (selectedItem == delMenu->actions().at(0))
+            removeTest(0);
+        else if (selectedItem == delMenu->actions().at(1))
+            removeTest(1);
+        else if (selectedItem == delMenu->actions().at(2))
+            removeTest(2);
+        else if (selectedItem == delMenu->actions().at(3))
+            removeTest(3);
+        else if (selectedItem == delMenu->actions().at(4))
+            removeTest(4);
+        else if (selectedItem == delMenu->actions().at(5))
+            removeTest(5);
+        else if (selectedItem == delMenu->actions().at(6))
+            removeTest(6);
     }
 }
 
@@ -91,7 +136,7 @@ void TableDialog::setupDialog(void)
 //                             FROM tbl_results,tbl_student,tbl_test1,tbl_test2,tbl_test3,tbl_test4,tbl_test5,tbl_test6 \
 //                             WHERE tbl_test1.id = tbl_results.f_id1 AND tbl_test2.id = tbl_results.f_id2 AND tbl_test3.id = tbl_results.f_id3 AND tbl_test4.id = tbl_results.f_id4 AND tbl_test5.id = tbl_results.f_id5 AND tbl_test6.id = tbl_results.f_id6 AND tbl_student.id = tbl_results.f_student \
 //                             ORDER BY tbl_results.f_dt,tbl_student.f_group,tbl_student.f_name")))
-    if (!query.exec(QString("SELECT f_name,f_group,f_class,f_dt,f_res1,f_legend1,f_res2,f_legend2,f_res3,f_legend3,f_res4,f_legend4,f_res5,f_legend5,f_res6,f_legend6 \
+    if (!query.exec(QString("SELECT f_name,f_group,f_class,f_dt,f_res1,f_legend1,f_res2,f_legend2,f_res3,f_legend3,f_res4,f_legend4,f_res5,f_legend5,f_res6,f_legend6,f_student,tbl_results.id \
                              FROM tbl_results,tbl_student \
                              WHERE  tbl_student.id = tbl_results.f_student ")))
     {
@@ -119,10 +164,15 @@ void TableDialog::setupDialog(void)
             ui->tableWidget->setItem(i, 8, new QTableWidgetItem(QString("%1 (%2)").arg(query.value(13).toString()).arg(query.value(12).toString()))); // Тест5
         if (!query.value(16).isNull())
             ui->tableWidget->setItem(i, 9, new QTableWidgetItem(QString("%1 (%2)").arg(query.value(15).toString()).arg(query.value(14).toString()))); // Тест6
+        ui->tableWidget->setItem(i, 10, new QTableWidgetItem(query.value(16).toString()));  // Id студента
+        ui->tableWidget->setItem(i, 11, new QTableWidgetItem(query.value(17).toString()));  // Id
         i++;
     }
     ui->tableWidget->horizontalHeader()->resizeSections(QHeaderView::ResizeToContents);
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->tableWidget->setColumnHidden(10,true);
+    ui->tableWidget->setColumnHidden(11,true);
+
 
     connect(ui->tableWidget->selectionModel(), SIGNAL(selectionChanged(QItemSelection, QItemSelection)), this, SLOT(setEnabledBtn(QItemSelection, QItemSelection)));
     connect(ui->tbFirst, SIGNAL(clicked(bool)), this, SLOT(slotFirst()));

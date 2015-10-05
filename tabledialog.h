@@ -2,13 +2,14 @@
 #define TABLEDIALOG_H
 
 #include <QDialog>
+#include <QMenu>
 #include <QItemSelection>
 
 namespace Ui {
 class TableDialog;
 }
 
-class QMenu;
+
 
 class TableDialog : public QDialog
 {
@@ -34,9 +35,11 @@ private slots:
 
 private:
     Ui::TableDialog *ui;
-    QMenu* menu;    // Контекстные меню
+    QMenu menu;     // Контекстные меню
+    QMenu* delMenu;
     void setupDialog(void);
     void createMenu(void);
+    void removeTest(int);
 };
 
 #endif // TABLEDIALOG_H
