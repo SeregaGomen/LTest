@@ -42,7 +42,7 @@ private:
     void closeDB(void);
     void setupLanguage(void);
     void calcStudent(int,QString,QString,QStringList,QStringList);
-    void export2XML(QString);
+    void export2XML(QString,QMap<QString,bool>);
     bool checkDB(QString);
     bool createDB(QString);
 };

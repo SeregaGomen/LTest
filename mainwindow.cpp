@@ -486,21 +486,26 @@ void MainWindow::slotExport(void)
     {
         fileName = QFileDialog::getSaveFileName(this,tr("Вибір файлу для експорту"),windowFilePath(),tr("Excel XML (*.xml)"));
         if (!fileName.isEmpty())
-            export2XML(fileName);
+        {
+            if (!fileName.endsWith(".xml"))
+                fileName += ".xml";
+            export2XML(fileName,dlg->getMap());
+        }
     }
     delete dlg;
 }
 
 // https://technet.microsoft.com/ru-ru/magazine/2006.01.blogtales(en-us).aspx
 // http://habrahabr.ru/post/235973/
-void MainWindow::export2XML(QString fileName)
+void MainWindow::export2XML(QString fileName,QMap<QString,bool> map)
 {
+    QSqlQuery query;
     QFile file(fileName);
     QXmlStreamWriter stream;
     QString title[] = {
                         "Діяльнісно-операційний тест",
                         "Інформаційно-технологічний тест",
-                        "Когнітивний тест з маркетингу туризму",
+                        "Когнітивний тест з маркетингу",
                         "Когнітивний тест з менеджменту",
                         "Особистісно-творчий тест",
                         "Мотиваційний тест"
@@ -519,49 +524,172 @@ void MainWindow::export2XML(QString fileName)
 
     stream.writeStartElement("ss:Workbook");
     stream.writeAttribute("xmlns:ss", "urn:schemas-microsoft-com:office:spreadsheet");
+    stream.writeStartElement("ss:Styles");
+        stream.writeStartElement("ss:Style");
+            stream.writeAttribute("ss:ID","1");
+            stream.writeStartElement("ss:Font");
+                stream.writeAttribute("ss:Bold","1");
+            stream.writeEndElement(); // Font
+
+        stream.writeEndElement(); // Style
+    stream.writeEndElement(); // Styles
+
     for (int i = 0; i < 6; i++)
     {
+        if (map[QString("Test%1").arg(i + 1)] == false)
+            continue;
+
         stream.writeStartElement("ss:Worksheet");
             stream.writeAttribute("ss:Name", title[i]);
                 stream.writeStartElement("ss:Table");
+
+                stream.writeStartElement("ss:Column");
+                    stream.writeAttribute("ss:Width","200");
+                stream.writeEndElement(); // Column
+                stream.writeStartElement("ss:Column");
+                    stream.writeAttribute("ss:Width","60");
+                stream.writeEndElement(); // Column
+                stream.writeStartElement("ss:Column");
+                    stream.writeAttribute("ss:Width","60");
+                stream.writeEndElement(); // Column
+                stream.writeStartElement("ss:Column");
+                    stream.writeAttribute("ss:Width","60");
+                stream.writeEndElement(); // Column
+                stream.writeStartElement("ss:Column");
+                    stream.writeAttribute("ss:Width","60");
+                stream.writeEndElement(); // Column
+                stream.writeStartElement("ss:Column");
+                    stream.writeAttribute("ss:Width","120");
+                stream.writeEndElement(); // Column
+
+                    // Заголовок
                     stream.writeStartElement("ss:Row");
-                        stream.writeStartElement("ss:Cell");
-                            stream.writeStartElement("ss:Data");
-                                stream.writeAttribute("ss:Type","String");
-                                stream.writeCDATA("ПІБ");
-                            stream.writeEndElement(); // Data
-                        stream.writeEndElement(); // Cell
-                        stream.writeStartElement("ss:Cell");
-                            stream.writeStartElement("ss:Data");
-                                stream.writeAttribute("ss:Type","String");
-                                stream.writeCDATA("Група");
-                            stream.writeEndElement(); // Data
-                        stream.writeEndElement(); // Cell
-                        stream.writeStartElement("ss:Cell");
-                            stream.writeStartElement("ss:Data");
-                                stream.writeAttribute("ss:Type","String");
-                                stream.writeCDATA("Курс");
-                            stream.writeEndElement(); // Data
-                        stream.writeEndElement(); // Cell
-                        stream.writeStartElement("ss:Cell");
-                            stream.writeStartElement("ss:Data");
-                                stream.writeAttribute("ss:Type","String");
-                                stream.writeCDATA("Дата");
-                            stream.writeEndElement(); // Data
-                        stream.writeEndElement(); // Cell
-                        stream.writeStartElement("ss:Cell");
-                            stream.writeStartElement("ss:Data");
-                                stream.writeAttribute("ss:Type","String");
-                                stream.writeCDATA("Результат");
-                            stream.writeEndElement(); // Data
-                        stream.writeEndElement(); // Cell
-                        stream.writeStartElement("ss:Cell");
-                            stream.writeStartElement("ss:Data");
-                                stream.writeAttribute("ss:Type","String");
-                                stream.writeCDATA("Легенда");
-                            stream.writeEndElement(); // Data
-                    stream.writeEndElement(); // Cell
+                        stream.writeAttribute("ss:StyleID","1");
+                        if (map["Name"] == true)
+                        {
+                            stream.writeStartElement("ss:Cell");
+                                stream.writeStartElement("ss:Data");
+                                    stream.writeAttribute("ss:Type","String");
+                                    stream.writeCDATA("ПІБ");
+                                stream.writeEndElement(); // Data
+                            stream.writeEndElement(); // Cell
+                        }
+                        if (map["Group"] == true)
+                        {
+                            stream.writeStartElement("ss:Cell");
+                                stream.writeStartElement("ss:Data");
+                                    stream.writeAttribute("ss:Type","String");
+                                    stream.writeCDATA("Група");
+                                stream.writeEndElement(); // Data
+                            stream.writeEndElement(); // Cell
+                        }
+                        if (map["Class"] == true)
+                        {
+                            stream.writeStartElement("ss:Cell");
+                                stream.writeStartElement("ss:Data");
+                                    stream.writeAttribute("ss:Type","String");
+                                    stream.writeCDATA("Курс");
+                                stream.writeEndElement(); // Data
+                            stream.writeEndElement(); // Cell
+                        }
+                        if (map["Date"] == true)
+                        {
+                            stream.writeStartElement("ss:Cell");
+                                stream.writeStartElement("ss:Data");
+                                    stream.writeAttribute("ss:Type","String");
+                                    stream.writeCDATA("Дата");
+                                stream.writeEndElement(); // Data
+                            stream.writeEndElement(); // Cell
+                        }
+                        if (map["Result"] == true)
+                        {
+                            stream.writeStartElement("ss:Cell");
+                                stream.writeStartElement("ss:Data");
+                                    stream.writeAttribute("ss:Type","String");
+                                    stream.writeCDATA("Результат");
+                                stream.writeEndElement(); // Data
+                            stream.writeEndElement(); // Cell
+                        }
+                        if (map["Legend"] == true)
+                        {
+                            stream.writeStartElement("ss:Cell");
+                                stream.writeStartElement("ss:Data");
+                                    stream.writeAttribute("ss:Type","String");
+                                    stream.writeCDATA("Легенда");
+                                stream.writeEndElement(); // Data
+                            stream.writeEndElement(); // Cell
+                        }
                 stream.writeEndElement(); // Row
+
+                // Данные
+                if (!query.exec(QString("SELECT f_name,f_group,f_class,f_dt,f_res%1,f_legend%1 FROM tbl_results,tbl_student WHERE tbl_student.id = tbl_results.f_student ").arg(i + 1)))
+                {
+                    QMessageBox::critical(this, tr("Помилка"),tr("Помилка доступу до бази даних!"), QMessageBox::Ok);
+                    qDebug() << query.lastError();
+                    file.close();
+                    return;
+                }
+                while (query.next())
+                {
+                    stream.writeStartElement("ss:Row");
+                    if (map["Name"] == true)
+                    {
+                        stream.writeStartElement("ss:Cell");
+                            stream.writeStartElement("ss:Data");
+                            stream.writeAttribute("ss:Type","String");
+                                stream.writeCDATA(query.value(0).toString());
+                            stream.writeEndElement(); // Data
+                        stream.writeEndElement(); // Cell
+                    }
+                    if (map["Group"] == true)
+                    {
+                        stream.writeStartElement("ss:Cell");
+                            stream.writeStartElement("ss:Data");
+                            stream.writeAttribute("ss:Type","String");
+                                stream.writeCDATA(query.value(1).toString());
+                            stream.writeEndElement(); // Data
+                        stream.writeEndElement(); // Cell
+                    }
+                    if (map["Class"] == true)
+                    {
+                        stream.writeStartElement("ss:Cell");
+                            stream.writeStartElement("ss:Data");
+                            stream.writeAttribute("ss:Type","String");
+                                stream.writeCDATA(query.value(2).toString());
+                            stream.writeEndElement(); // Data
+                        stream.writeEndElement(); // Cell
+                    }
+                    if (map["Date"] == true)
+                    {
+                        stream.writeStartElement("ss:Cell");
+                            stream.writeStartElement("ss:Data");
+                            stream.writeAttribute("ss:Type","String");
+                                stream.writeCDATA(query.value(3).toString());
+                            stream.writeEndElement(); // Data
+                        stream.writeEndElement(); // Cell
+                    }
+                    if (map["Result"] == true)
+                    {
+                        stream.writeStartElement("ss:Cell");
+                            stream.writeStartElement("ss:Data");
+                            stream.writeAttribute("ss:Type","String");
+                                stream.writeCDATA(query.value(4).toString());
+                            stream.writeEndElement(); // Data
+                        stream.writeEndElement(); // Cell
+                    }
+                    if (map["Legend"] == true)
+                    {
+                        stream.writeStartElement("ss:Cell");
+                            stream.writeStartElement("ss:Data");
+                            stream.writeAttribute("ss:Type","String");
+                                stream.writeCDATA(query.value(5).toString());
+                            stream.writeEndElement(); // Data
+                        stream.writeEndElement(); // Cell
+                    }
+                    stream.writeEndElement(); // Row
+                }
+
+
             stream.writeEndElement(); // Table
         stream.writeEndElement(); // Worksheet
     }

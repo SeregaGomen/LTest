@@ -33,3 +33,24 @@ void ExportDialog::slotCBClicked(bool)
 
     ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(isTest && isFields);
 }
+
+QMap<QString,bool> ExportDialog::getMap(void)
+{
+    QMap<QString,bool> map;
+
+    map["Test1"] = ui->cbTest1->isChecked();
+    map["Test2"] = ui->cbTest2->isChecked();
+    map["Test3"] = ui->cbTest3->isChecked();
+    map["Test4"] = ui->cbTest4->isChecked();
+    map["Test5"] = ui->cbTest5->isChecked();
+    map["Test6"] = ui->cbTest6->isChecked();
+
+    map["Name"] = ui->cbName->isChecked();
+    map["Group"] = ui->cbGroup->isChecked();
+    map["Class"] = ui->cbClass->isChecked();
+    map["Date"] = ui->cbDate->isChecked();
+    map["Result"] = ui->cbResult->isChecked();
+    map["Legend"] = ui->cbLegend->isChecked();
+
+    return map;
+}

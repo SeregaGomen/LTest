@@ -2,6 +2,7 @@
 #define EXPORTDIALOG_H
 
 #include <QDialog>
+#include <QMap>
 
 namespace Ui {
 class ExportDialog;
@@ -14,6 +15,7 @@ class ExportDialog : public QDialog
 public:
     explicit ExportDialog(QWidget *parent = 0);
     ~ExportDialog();
+    QMap<QString,bool> getMap(void);
 
 private slots:
     void slotCBClicked(bool);
