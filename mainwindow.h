@@ -27,6 +27,7 @@ public slots:
     void slotTest6(void);
     void slotStudent(void);
     void slotTable(void);
+    void slotExport(void);
 
 protected:
     void closeEvent(QCloseEvent *event);
@@ -41,6 +42,7 @@ private:
     void closeDB(void);
     void setupLanguage(void);
     void calcStudent(int,QString,QString,QStringList,QStringList);
+    void export2XML(QString);
     bool checkDB(QString);
     bool createDB(QString);
 };

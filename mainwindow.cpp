@@ -1,3 +1,6 @@
+#include <QFileDialog>
+#include <QXmlStreamWriter>
+#include <QFile>
 #include <QResource>
 #include <QSqlError>
 #include <QDebug>
@@ -24,6 +27,7 @@
 #include "studentdialog.h"
 #include "resultdialog.h"
 #include "tabledialog.h"
+#include "exportdialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -471,4 +475,95 @@ void MainWindow::slotTable(void)
     TableDialog* dlg = new TableDialog(this);
 
     dlg->show();
+}
+
+void MainWindow::slotExport(void)
+{
+    ExportDialog* dlg = new ExportDialog(this);
+    QString fileName;
+
+    if (dlg->exec() == QDialog::Accepted)
+    {
+        fileName = QFileDialog::getSaveFileName(this,tr("Вибір файлу для експорту"),windowFilePath(),tr("Excel XML (*.xml)"));
+        if (!fileName.isEmpty())
+            export2XML(fileName);
+    }
+    delete dlg;
+}
+
+// https://technet.microsoft.com/ru-ru/magazine/2006.01.blogtales(en-us).aspx
+// http://habrahabr.ru/post/235973/
+void MainWindow::export2XML(QString fileName)
+{
+    QFile file(fileName);
+    QXmlStreamWriter stream;
+
+    if (!file.open(QIODevice::WriteOnly))
+    {
+        QMessageBox::information(NULL, QObject::tr("Помилка"), QObject::tr("Помилка відкриття файлу %1").arg(fileName));
+        return;
+    }
+    QApplication::setOverrideCursor(Qt::BusyCursor);
+    stream.setDevice(&file);
+    stream.setAutoFormatting(true);
+    stream.writeStartDocument();
+
+
+    stream.writeStartElement("ss:Workbook");
+    stream.writeAttribute("xmlns:ss", "urn:schemas-microsoft-com:office:spreadsheet");
+        stream.writeStartElement("ss:Worksheet");
+            stream.writeAttribute("ss:Name", "Діяльнісно-операційний тест");
+            stream.writeStartElement("ss:Table");
+                stream.writeStartElement("ss:Row");
+                    stream.writeStartElement("ss:Cell");
+                        stream.writeStartElement("ss:Data");
+                            stream.writeAttribute("ss:Type","String");
+                            stream.writeCDATA("ПІБ");
+                        stream.writeEndElement(); // Data
+                    stream.writeEndElement(); // Cell
+                    stream.writeStartElement("ss:Cell");
+                        stream.writeStartElement("ss:Data");
+                            stream.writeAttribute("ss:Type","String");
+                            stream.writeCDATA("Група");
+                        stream.writeEndElement(); // Data
+                    stream.writeEndElement(); // Cell
+                    stream.writeStartElement("ss:Cell");
+                        stream.writeStartElement("ss:Data");
+                            stream.writeAttribute("ss:Type","String");
+                            stream.writeCDATA("Курс");
+                        stream.writeEndElement(); // Data
+                    stream.writeEndElement(); // Cell
+                    stream.writeStartElement("ss:Cell");
+                        stream.writeStartElement("ss:Data");
+                            stream.writeAttribute("ss:Type","String");
+                            stream.writeCDATA("Дата");
+                        stream.writeEndElement(); // Data
+                    stream.writeEndElement(); // Cell
+                    stream.writeStartElement("ss:Cell");
+                        stream.writeStartElement("ss:Data");
+                            stream.writeAttribute("ss:Type","String");
+                            stream.writeCDATA("Результат");
+                        stream.writeEndElement(); // Data
+                    stream.writeEndElement(); // Cell
+                    stream.writeStartElement("ss:Cell");
+                        stream.writeStartElement("ss:Data");
+                            stream.writeAttribute("ss:Type","String");
+                            stream.writeCDATA("Легенда");
+                        stream.writeEndElement(); // Data
+                    stream.writeEndElement(); // Cell
+                stream.writeEndElement(); // Row
+            stream.writeEndElement(); // Table
+        stream.writeEndElement(); // Worksheet
+    stream.writeEndElement(); // Workbook
+
+
+
+    stream.writeEndDocument();
+    file.close();
+    QApplication::restoreOverrideCursor();
+    if (file.error() != QFile::NoError)
+    {
+        QMessageBox::information(NULL, QObject::tr("Помилка"), QObject::tr("Помилка запису файлу %1").arg(fileName));
+        return;
+    }
 }
