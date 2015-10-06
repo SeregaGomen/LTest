@@ -497,6 +497,14 @@ void MainWindow::export2XML(QString fileName)
 {
     QFile file(fileName);
     QXmlStreamWriter stream;
+    QString title[] = {
+                        "Діяльнісно-операційний тест",
+                        "Інформаційно-технологічний тест",
+                        "Когнітивний тест з маркетингу туризму",
+                        "Когнітивний тест з менеджменту",
+                        "Особистісно-творчий тест",
+                        "Мотиваційний тест"
+                      };
 
     if (!file.open(QIODevice::WriteOnly))
     {
@@ -511,53 +519,53 @@ void MainWindow::export2XML(QString fileName)
 
     stream.writeStartElement("ss:Workbook");
     stream.writeAttribute("xmlns:ss", "urn:schemas-microsoft-com:office:spreadsheet");
+    for (int i = 0; i < 6; i++)
+    {
         stream.writeStartElement("ss:Worksheet");
-            stream.writeAttribute("ss:Name", "Діяльнісно-операційний тест");
-            stream.writeStartElement("ss:Table");
-                stream.writeStartElement("ss:Row");
-                    stream.writeStartElement("ss:Cell");
-                        stream.writeStartElement("ss:Data");
-                            stream.writeAttribute("ss:Type","String");
-                            stream.writeCDATA("ПІБ");
-                        stream.writeEndElement(); // Data
-                    stream.writeEndElement(); // Cell
-                    stream.writeStartElement("ss:Cell");
-                        stream.writeStartElement("ss:Data");
-                            stream.writeAttribute("ss:Type","String");
-                            stream.writeCDATA("Група");
-                        stream.writeEndElement(); // Data
-                    stream.writeEndElement(); // Cell
-                    stream.writeStartElement("ss:Cell");
-                        stream.writeStartElement("ss:Data");
-                            stream.writeAttribute("ss:Type","String");
-                            stream.writeCDATA("Курс");
-                        stream.writeEndElement(); // Data
-                    stream.writeEndElement(); // Cell
-                    stream.writeStartElement("ss:Cell");
-                        stream.writeStartElement("ss:Data");
-                            stream.writeAttribute("ss:Type","String");
-                            stream.writeCDATA("Дата");
-                        stream.writeEndElement(); // Data
-                    stream.writeEndElement(); // Cell
-                    stream.writeStartElement("ss:Cell");
-                        stream.writeStartElement("ss:Data");
-                            stream.writeAttribute("ss:Type","String");
-                            stream.writeCDATA("Результат");
-                        stream.writeEndElement(); // Data
-                    stream.writeEndElement(); // Cell
-                    stream.writeStartElement("ss:Cell");
-                        stream.writeStartElement("ss:Data");
-                            stream.writeAttribute("ss:Type","String");
-                            stream.writeCDATA("Легенда");
-                        stream.writeEndElement(); // Data
+            stream.writeAttribute("ss:Name", title[i]);
+                stream.writeStartElement("ss:Table");
+                    stream.writeStartElement("ss:Row");
+                        stream.writeStartElement("ss:Cell");
+                            stream.writeStartElement("ss:Data");
+                                stream.writeAttribute("ss:Type","String");
+                                stream.writeCDATA("ПІБ");
+                            stream.writeEndElement(); // Data
+                        stream.writeEndElement(); // Cell
+                        stream.writeStartElement("ss:Cell");
+                            stream.writeStartElement("ss:Data");
+                                stream.writeAttribute("ss:Type","String");
+                                stream.writeCDATA("Група");
+                            stream.writeEndElement(); // Data
+                        stream.writeEndElement(); // Cell
+                        stream.writeStartElement("ss:Cell");
+                            stream.writeStartElement("ss:Data");
+                                stream.writeAttribute("ss:Type","String");
+                                stream.writeCDATA("Курс");
+                            stream.writeEndElement(); // Data
+                        stream.writeEndElement(); // Cell
+                        stream.writeStartElement("ss:Cell");
+                            stream.writeStartElement("ss:Data");
+                                stream.writeAttribute("ss:Type","String");
+                                stream.writeCDATA("Дата");
+                            stream.writeEndElement(); // Data
+                        stream.writeEndElement(); // Cell
+                        stream.writeStartElement("ss:Cell");
+                            stream.writeStartElement("ss:Data");
+                                stream.writeAttribute("ss:Type","String");
+                                stream.writeCDATA("Результат");
+                            stream.writeEndElement(); // Data
+                        stream.writeEndElement(); // Cell
+                        stream.writeStartElement("ss:Cell");
+                            stream.writeStartElement("ss:Data");
+                                stream.writeAttribute("ss:Type","String");
+                                stream.writeCDATA("Легенда");
+                            stream.writeEndElement(); // Data
                     stream.writeEndElement(); // Cell
                 stream.writeEndElement(); // Row
             stream.writeEndElement(); // Table
         stream.writeEndElement(); // Worksheet
+    }
     stream.writeEndElement(); // Workbook
-
-
-
     stream.writeEndDocument();
     file.close();
     QApplication::restoreOverrideCursor();
