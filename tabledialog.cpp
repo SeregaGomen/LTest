@@ -10,6 +10,7 @@
 #include "test4dialog.h"
 #include "test5dialog.h"
 #include "test6dialog.h"
+#include "getstudentdialog.h"
 
 
 TableDialog::TableDialog(QWidget *parent) :
@@ -131,6 +132,7 @@ void TableDialog::setupDialog(void)
     ui->tb4->setEnabled(false);
     ui->tb5->setEnabled(false);
     ui->tb6->setEnabled(false);
+    ui->tbName->setEnabled(false);
 
     if (!query.exec(QString("SELECT f_name,f_group,f_class,f_dt,f_res1,f_legend1,f_res2,f_legend2,f_res3,f_legend3,f_res4,f_legend4,f_res5,f_legend5,f_res6,f_legend6,f_student,tbl_results.id \
                              FROM tbl_results,tbl_student \
@@ -182,6 +184,8 @@ void TableDialog::setupDialog(void)
     connect(ui->tb4, SIGNAL(clicked(bool)), this, SLOT(slotTest4()));
     connect(ui->tb5, SIGNAL(clicked(bool)), this, SLOT(slotTest5()));
     connect(ui->tb6, SIGNAL(clicked(bool)), this, SLOT(slotTest6()));
+
+    connect(ui->tbName, SIGNAL(clicked(bool)), this, SLOT(slotName()));
 
     ui->tableWidget->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(ui->tableWidget, SIGNAL(customContextMenuRequested(QPoint)),this, SLOT(showContextMenu(QPoint)));
@@ -245,6 +249,7 @@ void TableDialog::setEnabledBtn(QItemSelection,QItemSelection)
     ui->tb4->setEnabled(isSel);
     ui->tb5->setEnabled(isSel);
     ui->tb6->setEnabled(isSel);
+    ui->tbName->setEnabled(isSel);
 }
 
 void TableDialog::slotFirst(void)
@@ -309,3 +314,43 @@ void TableDialog::slotTest3(void)
     delete dlg;
 }
 
+void TableDialog::slotName(void)
+{
+    QSqlQuery query;
+    GetStudentDialog* sdlg = new GetStudentDialog();
+    QString dt = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 3).data().toString(),
+            name = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 0).data().toString(),
+            group = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 1).data().toString();
+    int course = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 2).data().toInt(),
+        id_student = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 10).data().toInt(),
+        id = ui->tableWidget->model()->index(ui->tableWidget->currentRow(), 11).data().toInt();
+
+    sdlg->initDialog(name,group, course, dt);
+    if (sdlg->exec() != QDialog::Accepted)
+    {
+        delete sdlg;
+        return;
+    }
+    dt = sdlg->getDate();
+    name = sdlg->getStudentName();
+    group = sdlg->getStudentGroup();
+    course = sdlg->getStudentClass();
+    // Сохраняем информацию о тестируемом
+    if (!query.exec(QString("UPDATE tbl_student SET f_name = '%1', f_group = '%2', f_class = %3 WHERE id = %4").arg(name.toUpper()).arg(group.toUpper()).arg(course).arg(id_student)))
+    {
+        QMessageBox::critical(this, tr("Помилка"),tr("Помилка запису бази даних!"), QMessageBox::Ok);
+        qDebug() << query.lastError();
+        return;
+    }
+    if (!query.exec(QString("UPDATE tbl_results SET f_dt = '%1' WHERE id = %2").arg(dt).arg(id)))
+    {
+        QMessageBox::critical(this, tr("Помилка"),tr("Помилка запису бази даних!"), QMessageBox::Ok);
+        qDebug() << query.lastError();
+        return;
+    }
+    ui->tableWidget->setItem(ui->tableWidget->currentRow(), 0, new QTableWidgetItem(name));  // ПІБ
+    ui->tableWidget->setItem(ui->tableWidget->currentRow(), 1, new QTableWidgetItem(group));  // Група
+    ui->tableWidget->setItem(ui->tableWidget->currentRow(), 2, new QTableWidgetItem(QString("%1").arg(course)));  // Курс
+    ui->tableWidget->setItem(ui->tableWidget->currentRow(), 3, new QTableWidgetItem(dt));  // Дата
+
+}

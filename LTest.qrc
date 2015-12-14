@@ -13,5 +13,6 @@
         <file>images/media-fast-forward.png</file>
         <file>images/media-play.png</file>
         <file>images/remove.png</file>
+        <file>images/people.png</file>
     </qresource>
 </RCC>

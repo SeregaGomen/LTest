@@ -19,6 +19,7 @@ public:
     QString getDate(void);
     int getStudentClass(void);
     void initDialog(void);
+    void initDialog(QString,QString,int,QString);
 
 private slots:
     void slotChangeText(const QString&);

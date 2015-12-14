@@ -31,6 +31,7 @@ private slots:
     void slotTest4(void);
     void slotTest5(void);
     void slotTest6(void);
+    void slotName(void);
     void showContextMenu(const QPoint&);
 
 private:

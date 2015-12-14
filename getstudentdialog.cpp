@@ -83,3 +83,11 @@ void GetStudentDialog::initDialog(void)
 //    ui->leName->setText("");
 }
 
+void GetStudentDialog::initDialog(QString name,QString group,int course,QString dt)
+{
+    initDialog();
+    ui->leName->setText(name);
+    ui->leGroup->setText(group);
+    ui->sbClass->setValue(course);
+    ui->deDate->setDateTime(QDateTime::fromString(dt,"dd.MM.yyyy"));
+}
