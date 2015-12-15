@@ -186,6 +186,9 @@
      </item>
      <item>
       <widget class="QToolButton" name="tbName">
+       <property name="toolTip">
+        <string>Редагувати анкетних даних</string>
+       </property>
        <property name="text">
         <string>...</string>
        </property>
